@@ -34,7 +34,6 @@ clone_raylib_and_raygui :: () {
     }
 }
 
-// TODO : Replace cmake by raylib/src/scripts/build_windows.bat
 compile_raylib :: () {
     print("Compiling Raylib : \n\n");
 
@@ -43,10 +42,10 @@ compile_raylib :: () {
 
     set_working_directory("vendors/raylib/build");
 
-    // Configure CMake
+    // Configure CMake...
     run_command("cmake", "..", "-DBUILD_SHARED_LIBS=ON", "-DCMAKE_BUILD_TYPE=Release", "-DBUILD_EXAMPLES=FALSE");
 
-    // Build the project
+    // Build the project...
     run_command("cmake", "--build", ".");
 
     set_working_directory(#filepath);
