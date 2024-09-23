@@ -45,7 +45,6 @@ main :: () {
     CloseWindow();
 }
 
-
 UpdateDrawFrame :: ()
 {
 

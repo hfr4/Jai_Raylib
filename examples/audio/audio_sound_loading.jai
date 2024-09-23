@@ -32,7 +32,6 @@ main :: () {
         if (IsKeyPressed(xx KeyboardKey.SPACE)) PlaySound(fxWav);      // Play WAV sound
         if (IsKeyPressed(xx KeyboardKey.ENTER)) PlaySound(fxOgg);      // Play OGG sound
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -42,8 +41,8 @@ main :: () {
 
         EndDrawing();
     }
-    UnloadSound(fxWav);     // Unload sound data
-    UnloadSound(fxOgg);     // Unload sound data
+    UnloadSound(fxWav);
+    UnloadSound(fxOgg);
 
     CloseAudioDevice();     // Close audio device
 

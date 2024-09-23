@@ -22,7 +22,6 @@ main :: () {
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [textures] example - texture rotation");
 
-    // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
     image45    := LoadImage("resources/raylib_logo.png");
     image90    := LoadImage("resources/raylib_logo.png");
     imageNeg90 := LoadImage("resources/raylib_logo.png");
@@ -43,12 +42,9 @@ main :: () {
 
     while !WindowShouldClose() {
 
-        if (IsMouseButtonPressed(xx MouseButton.LEFT) || IsKeyPressed(xx KeyboardKey.RIGHT))
-        {
+        if (IsMouseButtonPressed(xx MouseButton.LEFT) || IsKeyPressed(xx KeyboardKey.RIGHT)) {
             currentTexture = (currentTexture + 1)%NUM_TEXTURES; // Cycle between the textures
         }
-
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -59,6 +55,7 @@ main :: () {
 
         EndDrawing();
     }
+
     for i: 0..NUM_TEXTURES - 1 UnloadTexture(textures[i]);
 
     CloseWindow();

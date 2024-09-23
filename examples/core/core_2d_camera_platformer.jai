@@ -85,7 +85,6 @@ main :: () {
         // Call update camera function by its pointer
         cameraUpdaters[cameraOption](*camera, *player, envItems, deltaTime, SCREEN_WIDTH, SCREEN_HEIGHT);
 
-
         BeginDrawing();
 
             ClearBackground(LIGHTGRAY);
@@ -114,7 +113,6 @@ main :: () {
 
     CloseWindow();
 }
-
 UpdatePlayer :: (player: *Player, envItems: [] EnvItem, delta: float)
 {
     if (IsKeyDown(xx KeyboardKey.LEFT))  player.position.x -= PLAYER_HOR_SPD*delta;

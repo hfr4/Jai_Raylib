@@ -39,7 +39,6 @@ main :: () {
         else if (IsMouseButtonPressed(xx MouseButton.FORWARD)) ballColor = ORANGE;
         else if (IsMouseButtonPressed(xx MouseButton.BACK))    ballColor = BEIGE;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

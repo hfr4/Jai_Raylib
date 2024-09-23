@@ -22,15 +22,15 @@ main :: () {
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [textures] example - procedural images generation");
 
-    verticalGradient   := GenImageGradientLinear(SCREEN_WIDTH, SCREEN_HEIGHT, 0, RED, BLUE);
+    verticalGradient   := GenImageGradientLinear(SCREEN_WIDTH, SCREEN_HEIGHT, 0 , RED, BLUE);
     horizontalGradient := GenImageGradientLinear(SCREEN_WIDTH, SCREEN_HEIGHT, 90, RED, BLUE);
     diagonalGradient   := GenImageGradientLinear(SCREEN_WIDTH, SCREEN_HEIGHT, 45, RED, BLUE);
     radialGradient     := GenImageGradientRadial(SCREEN_WIDTH, SCREEN_HEIGHT, 0.0, WHITE, BLACK);
     squareGradient     := GenImageGradientSquare(SCREEN_WIDTH, SCREEN_HEIGHT, 0.0, WHITE, BLACK);
-    checked            := GenImageChecked(SCREEN_WIDTH, SCREEN_HEIGHT, 32, 32, RED, BLUE);
-    whiteNoise         := GenImageWhiteNoise(SCREEN_WIDTH, SCREEN_HEIGHT, 0.5);
-    perlinNoise        := GenImagePerlinNoise(SCREEN_WIDTH, SCREEN_HEIGHT, 50, 50, 4.0);
-    cellular           := GenImageCellular(SCREEN_WIDTH, SCREEN_HEIGHT, 32);
+    checked            := GenImageChecked       (SCREEN_WIDTH, SCREEN_HEIGHT, 32, 32, RED, BLUE);
+    whiteNoise         := GenImageWhiteNoise    (SCREEN_WIDTH, SCREEN_HEIGHT, 0.5);
+    perlinNoise        := GenImagePerlinNoise   (SCREEN_WIDTH, SCREEN_HEIGHT, 50, 50, 4.0);
+    cellular           := GenImageCellular      (SCREEN_WIDTH, SCREEN_HEIGHT, 32);
 
     textures: [NUM_TEXTURES] Texture2D;
 
@@ -44,7 +44,7 @@ main :: () {
     textures[7] = LoadTextureFromImage(perlinNoise);
     textures[8] = LoadTextureFromImage(cellular);
 
-    // Unload image data (CPU RAM)
+
     UnloadImage(verticalGradient);
     UnloadImage(horizontalGradient);
     UnloadImage(diagonalGradient);
@@ -61,12 +61,9 @@ main :: () {
 
     while !WindowShouldClose() {
 
-        if (IsMouseButtonPressed(xx MouseButton.LEFT) || IsKeyPressed(xx KeyboardKey.RIGHT))
-        {
-            currentTexture = (currentTexture + 1)%NUM_TEXTURES; // Cycle between the textures
+        if (IsMouseButtonPressed(xx MouseButton.LEFT) || IsKeyPressed(xx KeyboardKey.RIGHT)) {
+            currentTexture = (currentTexture + 1) % NUM_TEXTURES; // Cycle between the textures
         }
-
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -92,7 +89,7 @@ main :: () {
         EndDrawing();
     }
 
-    // Unload textures data (GPU VRAM)
+
     for i: 0..NUM_TEXTURES - 1 UnloadTexture(textures[i]);
 
     CloseWindow();

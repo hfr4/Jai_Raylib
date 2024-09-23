@@ -73,8 +73,8 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadFont(fontBm);     // AngelCode Font unloading
-    UnloadFont(fontTtf);    // TTF Font unloading
+    UnloadFont(fontBm);
+    UnloadFont(fontTtf);
 
     CloseWindow();
 }

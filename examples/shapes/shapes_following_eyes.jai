@@ -72,8 +72,6 @@ main :: () {
             irisRightPosition.x = scleraRightPosition.x + dxx;
             irisRightPosition.y = scleraRightPosition.y + dyy;
         }
-
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

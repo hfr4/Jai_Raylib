@@ -143,8 +143,8 @@ main :: () {
             DrawRectangle(GetScreenWidth()/2 - 2, 0, 4, GetScreenHeight(), LIGHTGRAY);
         EndDrawing();
     }
-    UnloadRenderTexture(screenCamera1); // Unload render texture
-    UnloadRenderTexture(screenCamera2); // Unload render texture
+    UnloadRenderTexture(screenCamera1);
+    UnloadRenderTexture(screenCamera2);
 
     CloseWindow();
 }

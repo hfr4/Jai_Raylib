@@ -25,7 +25,7 @@ main :: () {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [textures] example - textured polygon");
 
     // Define texture coordinates to map our texture to poly
-     texcoords: [MAX_POINTS] Vector2 = .[
+    texcoords: [MAX_POINTS] Vector2 = .[
         .{ 0.75 , 0.0   },
         .{ 0.25 , 0.0   },
         .{ 0.0  , 0.5   },
@@ -42,8 +42,7 @@ main :: () {
     // Define the base poly vertices from the UV's
     // NOTE: They can be specified in any other way
     points: [MAX_POINTS] Vector2;
-    for i: 0..MAX_POINTS - 1
-    {
+    for i: 0..MAX_POINTS - 1 {
         points[i].x = (texcoords[i].x - 0.5)*256.0;
         points[i].y = (texcoords[i].y - 0.5)*256.0;
     }
@@ -73,21 +72,18 @@ main :: () {
 
             DrawText("textured polygon", 20, 20, 20, DARKGRAY);
 
-            DrawTexturePoly(texture, .{ GetScreenWidth()/2.0, GetScreenHeight()/2.0 },
-                            positions, texcoords, WHITE);
+            DrawTexturePoly(texture, .{ GetScreenWidth() / 2.0, GetScreenHeight() / 2.0 }, positions, texcoords, WHITE);
 
         EndDrawing();
     }
-    UnloadTexture(texture); // Unload texture
+    UnloadTexture(texture);
 
     CloseWindow();
 }
-
 // Draw textured polygon, defined by vertex and texture coordinates
 // NOTE: Polygon center must have straight line path to all points
 // without crossing perimeter, points must be in anticlockwise order
-DrawTexturePoly :: (texture: Texture2D , center: Vector2, points: [] Vector2, texcoords: [] Vector2, tint: Color)
-{
+DrawTexturePoly :: (texture: Texture2D , center: Vector2, points: [] Vector2, texcoords: [] Vector2, tint: Color) {
     rlSetTexture(texture.id);
 
     // Texturing is only supported on RL_QUADS
@@ -95,8 +91,7 @@ DrawTexturePoly :: (texture: Texture2D , center: Vector2, points: [] Vector2, te
 
         rlColor4ub(tint.r, tint.g, tint.b, tint.a);
 
-        for i: 0..MAX_POINTS - 2
-        {
+        for i: 0..MAX_POINTS - 2 {
             rlTexCoord2f(0.5, 0.5);
             rlVertex2f(center.x, center.y);
 

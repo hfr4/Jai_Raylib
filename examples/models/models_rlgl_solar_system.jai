@@ -56,7 +56,6 @@ main :: () {
         moonRotation       += (2.0*rotationSpeed);
         moonOrbitRotation  += (8.0*rotationSpeed);
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -100,7 +99,6 @@ main :: () {
     }
     CloseWindow();
 }
-
 
 // Draw sphere without any matrix transformation
 // NOTE: Sphere is drawn in world position ( 0, 0, 0 ) with radius 1.0

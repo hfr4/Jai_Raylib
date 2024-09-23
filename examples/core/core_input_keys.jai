@@ -32,7 +32,6 @@ main :: () {
         if (IsKeyDown(xx KeyboardKey.UP))    ballPosition.y -= 2.0;
         if (IsKeyDown(xx KeyboardKey.DOWN))  ballPosition.y += 2.0;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

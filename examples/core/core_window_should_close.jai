@@ -43,7 +43,6 @@ main :: () {
             else if (IsKeyPressed(xx KeyboardKey.N)) exitWindowRequested = false;
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

@@ -148,8 +148,8 @@ main :: () {
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    UnloadMesh(mesh);       // Unload the mesh
-    UnloadShader(shader);   // Unload shader
+    UnloadMesh(mesh);
+    UnloadShader(shader);
 
     CloseWindow();          // Close window and OpenGL context
     //--------------------------------------------------------------------------------------

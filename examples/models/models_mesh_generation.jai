@@ -89,7 +89,6 @@ main :: () {
             if (currentModel < 0) currentModel = NUM_MODELS - 1;
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -120,14 +119,13 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(texture); // Unload texture
+    UnloadTexture(texture);
 
-    // Unload models data (GPU VRAM)
+
     for i: 0..NUM_MODELS - 1 UnloadModel(models[i]);
 
     CloseWindow();
 }
-
 // Generate a simple triangle mesh from code
 GenMeshCustom :: () -> Mesh
 {

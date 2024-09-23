@@ -43,7 +43,6 @@ main :: () {
         // Calculate cube screen space position (with a little offset to be in top)
         cubeScreenPosition = GetWorldToScreen(.{cubePosition.x, cubePosition.y + 2.5, cubePosition.z}, camera);
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

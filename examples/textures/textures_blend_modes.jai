@@ -24,14 +24,12 @@ main :: () {
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [textures] example - blend modes");
 
-    // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
-    bgImage   := LoadImage("resources/cyberpunk_street_background.png");     // Loaded in CPU memory (RAM)
-    bgTexture := LoadTextureFromImage(bgImage);                              // Image converted to texture, GPU memory (VRAM)
+    bgImage   := LoadImage("resources/cyberpunk_street_background.png");
+    bgTexture := LoadTextureFromImage(bgImage);
 
-    fgImage   := LoadImage("resources/cyberpunk_street_foreground.png");     // Loaded in CPU memory (RAM)
-    fgTexture := LoadTextureFromImage(fgImage);                              // Image converted to texture, GPU memory (VRAM)
+    fgImage   := LoadImage("resources/cyberpunk_street_foreground.png");
+    fgTexture := LoadTextureFromImage(fgImage);
 
-    // Once image has been converted to texture and uploaded to VRAM, it can be unloaded from RAM
     UnloadImage(bgImage);
     UnloadImage(fgImage);
 
@@ -47,7 +45,6 @@ main :: () {
             if (xx blendMode >= (blendCountMax - 1)) blendMode =  xx 0;
             else                                     blendMode += xx 1;
         }
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -74,8 +71,8 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(fgTexture); // Unload foreground texture
-    UnloadTexture(bgTexture); // Unload background texture
+    UnloadTexture(fgTexture);
+    UnloadTexture(bgTexture);
 
     CloseWindow();
 }

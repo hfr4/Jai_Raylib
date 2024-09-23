@@ -90,9 +90,9 @@ main :: () {
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    UnloadShader(shader);       // Unload shader
-    UnloadTexture(texRed);      // Unload texture
-    UnloadTexture(texBlue);     // Unload texture
+    UnloadShader(shader);
+    UnloadTexture(texRed);
+    UnloadTexture(texBlue);
 
     CloseWindow();
 

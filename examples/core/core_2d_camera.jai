@@ -78,7 +78,6 @@ main :: () {
             camera.rotation = 0.0;
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

@@ -85,9 +85,9 @@ main :: () {
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    UnloadModel(model);         // Unload model
-    UnloadShader(shader);       // Unload shader
-    UnloadTexture(texture);     // Unload texture
+    UnloadModel(model);
+    UnloadShader(shader);
+    UnloadTexture(texture);
 
     CloseWindow();
 }

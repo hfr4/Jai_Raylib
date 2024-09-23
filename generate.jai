@@ -6,7 +6,7 @@ build :: () {
     clone_raylib_and_raygui();
     compile_raylib();
     compile_raygui();
-    move_compiled_stuff_inside_module_folder();
+    create_module_folder();
     generate_bindings();
     build_examples();
 }
@@ -86,7 +86,7 @@ compile_raygui :: () {
     }
 }
 
-move_compiled_stuff_inside_module_folder :: () {
+create_module_folder :: () {
     if is_directory("Raylib") delete_directory("Raylib");
     make_directory_if_it_does_not_exist("Raylib");
 
@@ -113,10 +113,10 @@ generate_bindings :: () {
     generate_compile_time_struct_checks = false;
     header                              = BINDINGS_HEADER;
     footer                              = BINDINGS_FOOTER;
-    array_add(*libpaths     , ..LIBPATHS);
-    array_add(*libnames     , ..LIBNAMES);
-    array_add(*include_paths, ..INCLUDE_PATHS);
-    array_add(*source_files , ..SOURCE_FILES);
+    array_add(*libpaths     , "Raylib/lib");
+    array_add(*libnames     , "raylib", "raygui");
+    array_add(*include_paths, "Raylib/include");
+    array_add(*source_files , "raylib.h", "raymath.h", "rlgl.h", "raygui.h");
 
     generate_bindings(options, "Raylib/module.jai");
 }
@@ -199,26 +199,6 @@ winmm   :: #system_library,link_always "winmm";
 raylib :: #library "lib/raylib";
 raygui :: #library "lib/raygui";
 DONE;
-
-LIBPATHS :: string.[
-    "Raylib/lib",
-];
-
-LIBNAMES :: string.[
-    "raylib",
-    "raygui",
-];
-
-INCLUDE_PATHS :: string.[
-    "Raylib/include",
-];
-
-SOURCE_FILES :: string.[
-    "raylib.h",
-    "raymath.h",
-    "rlgl.h",
-    "raygui.h",
-];
 
 EXAMPLE_FOLDERS :: string.[
     "audio",
@@ -366,7 +346,7 @@ EXAMPLE_FILES :: string.[
     "textures/textures_npatch_drawing.jai",
     "textures/textures_particles_blending.jai",
     "textures/textures_polygon.jai",
-    "textures/textures_raw_data.jai",
+    "textures/textures_raw_data.jai", // TODO : problem with UnloadImage(checkedIm);
     "textures/textures_sprite_anim.jai",
     "textures/textures_sprite_button.jai",
     "textures/textures_sprite_explosion.jai",

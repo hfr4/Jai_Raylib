@@ -46,9 +46,8 @@ main :: () {
                 }
             }
 
-            UnloadDroppedFiles(droppedFiles);    // Unload filepaths from memory
+            UnloadDroppedFiles(droppedFiles);
         }
-
 
         BeginDrawing();
 

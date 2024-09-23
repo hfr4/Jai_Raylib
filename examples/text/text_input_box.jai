@@ -71,7 +71,6 @@ main :: () {
         if (mouseOnText) framesCounter += 1;
         else framesCounter = 0;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -100,7 +99,6 @@ main :: () {
     }
     CloseWindow();
 }
-
 // Check if any key is pressed
 // NOTE: We limit keys check to keys between 32 (xx KeyboardKey.SPACE) and 126
 IsAnyKeyPressed :: () -> bool {

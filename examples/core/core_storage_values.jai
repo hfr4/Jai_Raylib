@@ -56,7 +56,6 @@ main :: () {
 
         framesCounter+= 1;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -74,7 +73,6 @@ main :: () {
     }
     CloseWindow();
 }
-
 // Save integer value to storage file (to defined position)
 // NOTE: Storage positions is directly related to file memory layout (4 bytes each integer)
 SaveStorageValue :: (position: StorageData, value: s32) -> bool

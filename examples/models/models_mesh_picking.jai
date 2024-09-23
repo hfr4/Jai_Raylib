@@ -147,7 +147,6 @@ main :: () {
             }
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -222,9 +221,8 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadModel(tower);         // Unload model
-    UnloadTexture(texture);     // Unload texture
+    UnloadModel(tower);
+    UnloadTexture(texture);
 
     CloseWindow();
-
 }

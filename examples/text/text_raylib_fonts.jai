@@ -25,7 +25,6 @@ main :: () {
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [text] example - raylib fonts");
 
-    // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
     fonts: [MAX_FONTS] Font;
     fonts[0] = LoadFont("resources/fonts/alagard.png");
     fonts[1] = LoadFont("resources/fonts/pixelplay.png");
@@ -50,8 +49,7 @@ main :: () {
 
     positions: [MAX_FONTS] Vector2;
 
-    for i: 0..MAX_FONTS - 1
-    {
+    for i: 0..MAX_FONTS - 1 {
         positions[i].x = SCREEN_WIDTH/2.0 - MeasureTextEx(fonts[i], messages[i].data, fonts[i].baseSize*2.0, cast(float) spacings[i]).x/2.0;
         positions[i].y = 60.0 + fonts[i].baseSize + 45.0*i;
     }
@@ -82,7 +80,6 @@ main :: () {
         EndDrawing();
     }
 
-    // Fonts unloading
     for i: 0..MAX_FONTS - 1 UnloadFont(fonts[i]);
 
     CloseWindow();

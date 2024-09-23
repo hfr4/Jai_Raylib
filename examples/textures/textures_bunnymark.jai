@@ -14,11 +14,11 @@
 #import "Basic";
 #import "Raylib";
 
-MAX_BUNNIES   ::  50000;    // 50K bunnies limit
+MAX_BUNNIES :: 50000;    // 50K bunnies limit
 
 // This is the maximum amount of elements (quads) per batch
 // NOTE: This value is defined in [rlgl] module and can be changed there
-MAX_BATCH_ELEMENTS ::  8192;
+MAX_BATCH_ELEMENTS :: 8192;
 
 Bunny :: struct {
     position: Vector2;
@@ -76,7 +76,6 @@ main :: () {
                 ((bunnies[i].position.y + texBunny.height/2 - 40) < 0)) bunnies[i].speed.y *= -1;
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -102,7 +101,7 @@ main :: () {
     }
     array_free(bunnies);
 
-    UnloadTexture(texBunny);    // Unload bunny texture
+    UnloadTexture(texBunny);
 
     CloseWindow();
 }

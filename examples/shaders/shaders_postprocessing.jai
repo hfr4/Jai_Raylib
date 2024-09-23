@@ -154,12 +154,12 @@ main :: () {
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    // Unload all postpro shaders
+
     for i: 0..MAX_POSTPRO_SHADERS - 1 UnloadShader(shaders[i]);
 
-    UnloadTexture(texture);         // Unload texture
-    UnloadModel(model);             // Unload model
-    UnloadRenderTexture(target);    // Unload render texture
+    UnloadTexture(texture);
+    UnloadModel(model);
+    UnloadRenderTexture(target);
 
     CloseWindow();                  // Close window and OpenGL context
     //--------------------------------------------------------------------------------------

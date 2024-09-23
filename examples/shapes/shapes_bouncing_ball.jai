@@ -44,7 +44,6 @@ main :: () {
         }
         else framesCounter += 1;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

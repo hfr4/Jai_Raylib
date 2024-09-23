@@ -57,7 +57,6 @@ main :: () {
 
         if (timePlayed > 1.0) timePlayed = 1.0;   // Make sure time played is no longer than music
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

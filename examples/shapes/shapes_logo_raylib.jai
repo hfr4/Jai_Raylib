@@ -24,9 +24,6 @@ main :: () {
 
     while !WindowShouldClose() {
 
-        // TODO: Update your variables here
-
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

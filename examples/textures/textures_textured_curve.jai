@@ -22,13 +22,13 @@ texRoad: Texture;
 
 showCurve := false;
 
-curveWidth := 50.0;
+curveWidth    := 50.0;
 curveSegments := 24;
 
-curveStartPosition: Vector2;
+curveStartPosition:        Vector2;
 curveStartPositionTangent: Vector2;
 
-curveEndPosition: Vector2;
+curveEndPosition:        Vector2;
 curveEndPositionTangent: Vector2;
 
 curveSelectedPoint: *Vector2;
@@ -74,20 +74,19 @@ main :: () {
         // If a point was selected, move it
         if (curveSelectedPoint) curveSelectedPoint.* = Vector2Add(curveSelectedPoint, GetMouseDelta());
 
-
         // The mouse is down, and nothing was selected, so see if anything was picked
         mouse := GetMousePosition();
+
         if      (CheckCollisionPointCircle(mouse, curveStartPosition       , 6)) curveSelectedPoint = *curveStartPosition;
         else if (CheckCollisionPointCircle(mouse, curveStartPositionTangent, 6)) curveSelectedPoint = *curveStartPositionTangent;
         else if (CheckCollisionPointCircle(mouse, curveEndPosition         , 6)) curveSelectedPoint = *curveEndPosition;
         else if (CheckCollisionPointCircle(mouse, curveEndPositionTangent  , 6)) curveSelectedPoint = *curveEndPositionTangent;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
 
-            DrawTexturedCurve();    // Draw a textured Spline Cubic Bezier
+            DrawTexturedCurve();
 
             // Draw spline for reference
             if (showCurve) DrawSplineSegmentBezierCubic(curveStartPosition, curveEndPosition, curveStartPositionTangent, curveEndPositionTangent, 2, BLUE);
@@ -121,11 +120,6 @@ main :: () {
 
     CloseWindow();
 }
-
-
-// Module Functions Definition
-
-
 // Draw textured curve using Spline Cubic Bezier
 DrawTexturedCurve :: () {
     step := 1.0 / curveSegments;
@@ -145,8 +139,8 @@ DrawTexturedCurve :: () {
         t = step * cast(float)i;
 
         a := Math.pow(1.0 - t, 3);
-        b := 3.0*Math.pow(1.0 - t, 2)*t;
-        c := 3.0*(1.0 - t)*Math.pow(t, 2);
+        b := 3.0 * Math.pow(1.0 - t, 2) * t;
+        c := 3.0 * (1.0 - t) * Math.pow(t, 2);
         d := Math.pow(t, 3);
 
         // Compute the endpoint for this segment
@@ -163,8 +157,7 @@ DrawTexturedCurve :: () {
         v := previousV + Vector2Length(delta);
 
         // Make sure the start point has a normal
-        if (!tangentSet)
-        {
+        if (!tangentSet) {
             previousTangent = normal;
             tangentSet = true;
         }
@@ -201,4 +194,3 @@ DrawTexturedCurve :: () {
         previousV       = v;
     }
 }
-

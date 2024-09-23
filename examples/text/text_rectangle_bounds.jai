@@ -16,17 +16,17 @@
 #import "Basic";
 #import "Raylib";
 
+text :: #string DONE
+Text cannot escape    this container  ...word wrap also works when active so here's a long text for testing.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec ullamcorper sit amet risus nullam eget felis eget.
+DONE;
+
 main :: () {
     SCREEN_WIDTH  :: 800;
     SCREEN_HEIGHT :: 450;
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [text] example - draw text inside a rectangle");
-
-    text := #string DONE
-Text cannot escape    this container  ...word wrap also works when active so here's a long text for testing.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec ullamcorper sit amet risus nullam eget felis eget.
-DONE;
 
     resizing := false;
     wordWrap := true;
@@ -57,8 +57,7 @@ DONE;
         else if (!resizing)                           borderColor = MAROON;
 
         // Container resizing logic
-        if (resizing)
-        {
+        if (resizing) {
             if (IsMouseButtonReleased(xx MouseButton.LEFT)) resizing = false;
 
             width  := container.width + (mouse.x - lastMouse.x);
@@ -66,9 +65,7 @@ DONE;
 
             container.width  = ifx (width > minWidth)   then (ifx (width < maxWidth)   then width  else maxWidth)  else minWidth;
             container.height = ifx (height > minHeight) then (ifx (height < maxHeight) then height else maxHeight) else minHeight;
-        }
-        else
-        {
+        } else {
             // Check if we're resizing
             if (IsMouseButtonDown(xx MouseButton.LEFT) && CheckCollisionPointRec(mouse, resizer)) resizing = true;
         }
@@ -106,17 +103,13 @@ DONE;
     }
     CloseWindow();
 }
-
-
 // Draw text using font inside rectangle limits
-DrawTextBoxed :: (font: Font, text: string, rec: Rectangle, fontSize: float, spacing: float, wordWrap: bool, tint: Color)
-{
+DrawTextBoxed :: (font: Font, text: string, rec: Rectangle, fontSize: float, spacing: float, wordWrap: bool, tint: Color) {
     DrawTextBoxedSelectable(font, text, rec, fontSize, spacing, wordWrap, tint, 0, 0, WHITE, WHITE);
 }
 
 // Draw text using font inside rectangle limits with support for text selection
-DrawTextBoxedSelectable :: (font: Font, text: string, rec: Rectangle, fontSize: float, spacing: float, wordWrap: bool, tint: Color, selectStart: int, selectLength: int, selectTint: Color, selectBackTint: Color)
-{
+DrawTextBoxedSelectable :: (font: Font, text: string, rec: Rectangle, fontSize: float, spacing: float, wordWrap: bool, tint: Color, selectStart: int, selectLength: int, selectTint: Color, selectBackTint: Color) {
     length := TextLength(text.data);  // Total length in bytes of the text, scanned by codepoints in loop
 
     textOffsetY := 0.0;       // Offset between lines (on line break '\n')
@@ -126,11 +119,11 @@ DrawTextBoxedSelectable :: (font: Font, text: string, rec: Rectangle, fontSize: 
 
     // Word/character wrapping mechanism variables
     State :: enum {
-        MEASURE_STATE :: 0;
-        DRAW_STATE    :: 1;
+        MEASURE :: 0;
+        DRAW    :: 1;
     }
 
-    state : bool = ifx wordWrap then cast(bool) State.MEASURE_STATE else cast(bool) State.DRAW_STATE;
+    state : bool = ifx wordWrap then cast(bool) State.MEASURE else cast(bool) State.DRAW;
 
     startLine := -1;         // Index where to begin drawing (where a line begins)
     endLine   := -1;         // Index where to stop drawing (where a line ends)
@@ -163,7 +156,7 @@ DrawTextBoxedSelectable :: (font: Font, text: string, rec: Rectangle, fontSize: 
         // and change states again and again recursively until the end of the text (or until we get outside of the container).
         // When wordWrap is OFF we don't need the measure state so we go to the drawing state immediately
         // and begin drawing on the next line before we can get outside the container.
-        if (state == cast(bool) State.MEASURE_STATE)
+        if (state == cast(bool) State.MEASURE)
         {
             // TODO: There are multiple types of spaces in UNICODE, maybe it's a good idea to add support for more
             // Ref: http://jkorpela.fi/chars/spaces.html
@@ -184,7 +177,7 @@ DrawTextBoxedSelectable :: (font: Font, text: string, rec: Rectangle, fontSize: 
             }
             else if (codepoint == #char "\n") state = !state;
 
-            if (state == cast(bool) State.DRAW_STATE)
+            if (state == cast(bool) State.DRAW)
             {
                 textOffsetX = 0;
                 i = startLine;

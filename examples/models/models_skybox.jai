@@ -101,7 +101,7 @@ main :: () {
             {
                 if (IsFileExtension(droppedFiles.paths[0], ".png;.jpg;.hdr;.bmp;.tga"))
                 {
-                    // Unload current cubemap texture to load new one
+
                     UnloadTexture(skybox.materials[0].maps[xx MaterialMapIndex.CUBEMAP].texture);
 
                     if (useHDR)
@@ -125,7 +125,7 @@ main :: () {
                 }
             }
 
-            UnloadDroppedFiles(droppedFiles);    // Unload filepaths from memory
+            UnloadDroppedFiles(droppedFiles);
         }
         //----------------------------------------------------------------------------------
 
@@ -164,7 +164,7 @@ main :: () {
     UnloadShader(skybox.materials[0].shader);
     UnloadTexture(skybox.materials[0].maps[xx MaterialMapIndex.CUBEMAP].texture);
 
-    UnloadModel(skybox);        // Unload skybox model
+    UnloadModel(skybox);
 
     CloseWindow();              // Close window and OpenGL context
     //--------------------------------------------------------------------------------------
@@ -244,7 +244,7 @@ GenTextureCubemap :: (shader: Shader, panorama: Texture2D, size: s32, format: s3
     rlDisableShader();          // Unbind shader
     rlDisableTexture();         // Unbind texture
     rlDisableFramebuffer();     // Unbind framebuffer
-    rlUnloadFramebuffer(fbo);   // Unload framebuffer (and automatically attached depth texture/renderbuffer)
+    rlUnloadFramebuffer(fbo);
 
     // Reset viewport dimensions to default
     rlViewport(0, 0, rlGetFramebufferWidth(), rlGetFramebufferHeight());

@@ -36,7 +36,6 @@ main :: () {
 
         // TODO: Update your variables here
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

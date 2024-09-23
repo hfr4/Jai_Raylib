@@ -128,7 +128,6 @@ main :: () {
             GetMouseWheelMove()*2.0);                              // Move to target (zoom)
 */
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -186,7 +185,6 @@ main :: () {
 
     CloseWindow();
 }
-
 CAMERA_CULL_DISTANCE_NEAR      :: RL_CULL_DISTANCE_NEAR;
 CAMERA_CULL_DISTANCE_FAR       :: RL_CULL_DISTANCE_FAR;
 CAMERA_MOVE_SPEED              :: 5.4;   // Units per second

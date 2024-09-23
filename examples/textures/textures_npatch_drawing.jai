@@ -24,7 +24,6 @@ main :: () {
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [textures] example - N-patch drawing");
 
-    // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
     nPatchTexture := LoadTexture("resources/ninepatch_button.png");
 
     mousePosition: Vector2;
@@ -33,8 +32,8 @@ main :: () {
     // Position and size of the n-patches
     dstRec1 := Rectangle.{ 480.0, 160.0, 32.0, 32.0 };
     dstRec2 := Rectangle.{ 160.0, 160.0, 32.0, 32.0 };
-    dstRecH := Rectangle.{ 160.0, 93.0, 32.0, 32.0 };
-    dstRecV := Rectangle.{ 92.0, 160.0, 32.0, 32.0 };
+    dstRecH := Rectangle.{ 160.0, 93.0 , 32.0, 32.0 };
+    dstRecV := Rectangle.{ 92.0 , 160.0, 32.0, 32.0 };
 
     // A 9-patch (NPATCH_NINE_PATCH) changes its sizes in both axis
     ninePatchInfo1 := NPatchInfo.{ .{ 0.0, 0.0  , 64.0, 64.0 }, 12, 40, 12, 12, xx NPatchLayout.NINE_PATCH };
@@ -61,15 +60,14 @@ main :: () {
         dstRecV.height = mousePosition.y - dstRecV.y;
 
         // Set a minimum width and/or height
-        if (dstRec1.width < 1.0)   dstRec1.width  = 1.0;
-        if (dstRec1.width > 300.0) dstRec1.width  = 300.0;
-        if (dstRec1.height < 1.0)  dstRec1.height = 1.0;
-        if (dstRec2.width < 1.0)   dstRec2.width  = 1.0;
-        if (dstRec2.width > 300.0) dstRec2.width  = 300.0;
-        if (dstRec2.height < 1.0)  dstRec2.height = 1.0;
-        if (dstRecH.width < 1.0)   dstRecH.width  = 1.0;
-        if (dstRecV.height < 1.0)  dstRecV.height = 1.0;
-
+        if (dstRec1.width  < 1.0)   dstRec1.width  = 1.0;
+        if (dstRec1.width  > 300.0) dstRec1.width  = 300.0;
+        if (dstRec1.height < 1.0)   dstRec1.height = 1.0;
+        if (dstRec2.width  < 1.0)   dstRec2.width  = 1.0;
+        if (dstRec2.width  > 300.0) dstRec2.width  = 300.0;
+        if (dstRec2.height < 1.0)   dstRec2.height = 1.0;
+        if (dstRecH.width  < 1.0)   dstRecH.width  = 1.0;
+        if (dstRecV.height < 1.0)   dstRecV.height = 1.0;
 
         BeginDrawing();
 
@@ -78,8 +76,8 @@ main :: () {
             // Draw the n-patches
             DrawTextureNPatch(nPatchTexture, ninePatchInfo2, dstRec2, origin, 0.0, WHITE);
             DrawTextureNPatch(nPatchTexture, ninePatchInfo1, dstRec1, origin, 0.0, WHITE);
-            DrawTextureNPatch(nPatchTexture, h3PatchInfo, dstRecH, origin, 0.0, WHITE);
-            DrawTextureNPatch(nPatchTexture, v3PatchInfo, dstRecV, origin, 0.0, WHITE);
+            DrawTextureNPatch(nPatchTexture, h3PatchInfo   , dstRecH, origin, 0.0, WHITE);
+            DrawTextureNPatch(nPatchTexture, v3PatchInfo   , dstRecV, origin, 0.0, WHITE);
 
             // Draw the source texture
             DrawRectangleLines(5, 88, 74, 266, BLUE);
@@ -91,7 +89,7 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(nPatchTexture);       // Texture unloading
+    UnloadTexture(nPatchTexture);
 
     CloseWindow();
 }

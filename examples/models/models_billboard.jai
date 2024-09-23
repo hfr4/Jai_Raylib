@@ -61,7 +61,6 @@ main :: () {
         distanceStatic   = Vector3Distance(camera.position, billPositionStatic);
         distanceRotating = Vector3Distance(camera.position, billPositionRotating);
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -89,7 +88,7 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(bill);        // Unload texture
+    UnloadTexture(bill);
 
     CloseWindow();
 }

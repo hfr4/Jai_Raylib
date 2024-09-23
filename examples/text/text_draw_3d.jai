@@ -31,9 +31,9 @@
 
 Math :: #import "Math";
 
-LETTER_BOUNDRY_SIZE      :: 0.25;
-TEXT_MAX_LAYERS          :: 32;
-LETTER_BOUNDRY_COLOR     :: VIOLET;
+LETTER_BOUNDRY_SIZE   :: 0.25;
+TEXT_MAX_LAYERS       :: 32;
+LETTER_BOUNDRY_COLOR  :: VIOLET;
 
 SHOW_LETTER_BOUNDRY := false;
 SHOW_TEXT_BOUNDRY   := false;
@@ -130,7 +130,7 @@ main :: () {
                 fontSize = cast(float) font.baseSize;
             }
 
-            UnloadDroppedFiles(droppedFiles);    // Unload filepaths from memory
+            UnloadDroppedFiles(droppedFiles);
         }
 
         // Handle Events
@@ -240,7 +240,6 @@ main :: () {
 
         quads = 0;                      // Reset quad counter
         time += GetFrameTime();         // Update timer needed by `DrawTextWave3D()`
-
 
         BeginDrawing();
 
@@ -370,7 +369,6 @@ main :: () {
                     SHOW_LETTER_BOUNDRY = slb;
                 EndShaderMode();
 
-
             EndMode3D();
 
             // Draw 2D info text & stats
@@ -404,13 +402,12 @@ main :: () {
     }
 
     UnloadFont(font);
+
     CloseWindow();
 }
 
-
 // Draw codepoint at specified position in 3D space
-DrawTextCodepoint3D :: (font: Font, codepoint: s32, pos: Vector3, fontSize: float, backface: bool, tint: Color)
-{
+DrawTextCodepoint3D :: (font: Font, codepoint: s32, pos: Vector3, fontSize: float, backface: bool, tint: Color) {
     // Character index position in sprite font
     // NOTE: In case a codepoint is not available in the font, index returned points to '?'
     index := GetGlyphIndex(font, codepoint);
@@ -483,8 +480,7 @@ DrawTextCodepoint3D :: (font: Font, codepoint: s32, pos: Vector3, fontSize: floa
 }
 
 // Draw a 2D text in 3D space
-DrawText3D :: (font: Font, text: *u8, position: Vector3, fontSize: float, fontSpacing: float, lineSpacing: float, backface: bool, tint: Color)
-{
+DrawText3D :: (font: Font, text: *u8, position: Vector3, fontSize: float, fontSpacing: float, lineSpacing: float, backface: bool, tint: Color) {
     len := TextLength(text);          // Total length in bytes of the text, scanned by codepoints in loop
 
     textOffsetY := 0.0;               // Offset between lines (on line break '\n')
@@ -530,8 +526,7 @@ DrawText3D :: (font: Font, text: *u8, position: Vector3, fontSize: float, fontSp
 }
 
 // Measure a text in 3D. For some reason `MeasureTextEx()` just doesn't seem to work so i had to use this instead.
-MeasureText3D :: (font: Font, text: *u8, fontSize: float, fontSpacing: float, lineSpacing: float) -> Vector3
-{
+MeasureText3D :: (font: Font, text: *u8, fontSize: float, fontSpacing: float, lineSpacing: float) -> Vector3 {
     len := TextLength(text);
     tempLen := 0;                // Used to count longer text line num chars
     lenCounter := 0;
@@ -591,8 +586,7 @@ MeasureText3D :: (font: Font, text: *u8, fontSize: float, fontSpacing: float, li
 
 // Draw a 2D text in 3D space and wave the parts that start with `~~` and end with `~~`.
 // This is a modified version of the original code by @Nighten found here https://github.com/NightenDushi/Raylib_DrawTextStyle
-DrawTextWave3D :: (font: Font, text: *u8, position: Vector3, fontSize: float, fontSpacing: float, lineSpacing: float, backface: bool, config: *WaveTextConfig, time: float , tint: Color)
-{
+DrawTextWave3D :: (font: Font, text: *u8, position: Vector3, fontSize: float, fontSpacing: float, lineSpacing: float, backface: bool, config: *WaveTextConfig, time: float , tint: Color) {
     length := TextLength(text);          // Total length in bytes of the text, scanned by codepoints in loop
 
     textOffsetY := 0.0;               // Offset between lines (on line break '\n')
@@ -656,8 +650,7 @@ DrawTextWave3D :: (font: Font, text: *u8, position: Vector3, fontSize: float, fo
 }
 
 // Measure a text in 3D ignoring the `~~` chars.
-MeasureTextWave3D :: (font: Font, text: *u8, fontSize: float, fontSpacing: float,lineSpacing: float) -> Vector3
-{
+MeasureTextWave3D :: (font: Font, text: *u8, fontSize: float, fontSpacing: float,lineSpacing: float) -> Vector3 {
     len := TextLength(text);
     tempLen := 0;                // Used to count longer text line num chars
     lenCounter := 0;
@@ -720,10 +713,10 @@ MeasureTextWave3D :: (font: Font, text: *u8, fontSize: float, fontSpacing: float
 }
 
 // Generates a nice color with a random hue
-GenerateRandomColor :: (s: float, v: float) -> Color
-{
+GenerateRandomColor :: (s: float, v: float) -> Color {
     PHI :: 0.618033988749895; // Golden ratio conjugate
     h := cast(float) GetRandomValue(0, 360);
     h = xx Math.fmod_cycling((h + h*PHI), 360.0);
+
     return ColorFromHSV(h, s, v);
 }

@@ -25,15 +25,13 @@ main :: () {
 
     InitAudioDevice();
 
-    // Load explosion sound
     fxBoom := LoadSound("resources/boom.wav");
 
-    // Load explosion texture
     explosion := LoadTexture("resources/explosion.png");
 
     // Init variables for animation
     frameWidth  := cast(float) (explosion.width/NUM_FRAMES_PER_LINE);   // Sprite one frame rectangle width
-    frameHeight := cast(float) (explosion.height/NUM_LINES);           // Sprite one frame rectangle height
+    frameHeight := cast(float) (explosion.height/NUM_LINES);            // Sprite one frame rectangle height
     currentFrame := 0;
     currentLine  := 0;
 
@@ -61,21 +59,17 @@ main :: () {
         }
 
         // Compute explosion animation frames
-        if (active)
-        {
+        if (active) {
             framesCounter += 1;
 
-            if (framesCounter > 2)
-            {
+            if (framesCounter > 2) {
                 currentFrame += 1;
 
-                if (currentFrame >= NUM_FRAMES_PER_LINE)
-                {
+                if (currentFrame >= NUM_FRAMES_PER_LINE) {
                     currentFrame = 0;
                     currentLine += 1;
 
-                    if (currentLine >= NUM_LINES)
-                    {
+                    if (currentLine >= NUM_LINES) {
                         currentLine = 0;
                         active = false;
                     }
@@ -88,7 +82,6 @@ main :: () {
         frameRec.x = frameWidth*currentFrame;
         frameRec.y = frameHeight*currentLine;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -99,8 +92,8 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(explosion);   // Unload texture
-    UnloadSound(fxBoom);        // Unload sound
+    UnloadTexture(explosion);
+    UnloadSound(fxBoom);
 
     CloseAudioDevice();
 

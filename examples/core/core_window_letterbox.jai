@@ -87,7 +87,7 @@ main :: () {
         }
 
 
-    UnloadRenderTexture(target);        // Unload render texture
+    UnloadRenderTexture(target);
 
     CloseWindow();
 }

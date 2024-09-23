@@ -20,19 +20,18 @@ main :: () {
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [shapes] example - raylib logo animation");
 
-    logoPositionX : s32 = SCREEN_WIDTH/2  - 128;
-    logoPositionY : s32 = SCREEN_HEIGHT/2 - 128;
+    logoPositionX : s32 = SCREEN_WIDTH  / 2 - 128;
+    logoPositionY : s32 = SCREEN_HEIGHT / 2 - 128;
 
     framesCounter : s32 = 0;
     lettersCount  : s32 = 0;
 
-    topSideRecWidth   : s32 = 16;
-    leftSideRecHeight : s32 = 16;
-
+    topSideRecWidth    : s32 = 16;
+    leftSideRecHeight  : s32 = 16;
     bottomSideRecWidth : s32 = 16;
     rightSideRecHeight : s32 = 16;
 
-    state := 0;                  // Tracking animation states (State Machine)
+    state := 0;                // Tracking animation states (State Machine)
     alpha := 1.0;             // Useful for fading
 
     SetTargetFPS(60);
@@ -101,7 +100,6 @@ main :: () {
                 state = 0;          // Return to State 0
             }
         }
-
 
         BeginDrawing();
 

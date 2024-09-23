@@ -85,7 +85,6 @@ main :: () {
             default: break;
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -114,7 +113,6 @@ main :: () {
     }
     CloseWindow();
 }
-
 // Loading data thread function definition
 static void *LoadDataThread(void *arg)
 {

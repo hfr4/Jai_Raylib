@@ -22,26 +22,22 @@ main :: () {
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [textures] example - texture from raw data");
 
-    // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
-
     // Load RAW image data (512x512, 32bit RGBA, no file header)
     fudesumiRaw := LoadImageRaw("resources/fudesumi.raw", 384, 512, xx PixelFormat.UNCOMPRESSED_R8G8B8A8, 0);
-    fudesumi := LoadTextureFromImage(fudesumiRaw);  // Upload CPU (RAM) image to GPU (VRAM)
-    UnloadImage(fudesumiRaw);                                // Unload CPU (RAM) image data
+    fudesumi    := LoadTextureFromImage(fudesumiRaw);
+    UnloadImage(fudesumiRaw);
 
     // Generate a checked texture by code
     width  : s32 = 960;
     height : s32 = 480;
 
     // Dynamic memory allocation to store pixels data (Color type)
-    pixels := NewArray(width*height, Color);
+    pixels := NewArray(width * height, Color);
 
-    for y: 0..height - 1
-    {
-        for x: 0..width - 1
-        {
-            if (((x/32+y/32)/1)%2 == 0) pixels[y*width + x] = ORANGE;
-            else                        pixels[y*width + x] = GOLD;
+    for y: 0..height - 1 {
+        for x: 0..width - 1 {
+            if (((x/32 + y/32)/1) % 2 == 0) pixels[y * width + x] = ORANGE;
+            else                            pixels[y * width + x] = GOLD;
         }
     }
 
@@ -53,16 +49,12 @@ main :: () {
         format  = xx PixelFormat.UNCOMPRESSED_R8G8B8A8,
         mipmaps = 1
     };
-    // UnloadImage(checkedIm);         // Unload CPU (RAM) image data (pixels)
-
     checked := LoadTextureFromImage(checkedIm);
+    UnloadImage(checkedIm);
 
     SetTargetFPS(60);
 
     while !WindowShouldClose() {
-
-        // TODO: Update your variables here
-
 
         BeginDrawing();
 
@@ -79,8 +71,9 @@ main :: () {
 
         EndDrawing();
     }
-    UnloadTexture(fudesumi);    // Texture unloading
-    UnloadTexture(checked);     // Texture unloading
+
+    UnloadTexture(fudesumi);
+    UnloadTexture(checked);
 
     CloseWindow();
 }

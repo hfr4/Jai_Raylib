@@ -26,8 +26,6 @@ main :: () {
 
     msg := "Loaded Font";
 
-    // NOTE: Textures/Fonts MUST be loaded after Window initialization (OpenGL context is required)
-
     // TTF Font loading with custom generation parameters
     font := LoadFontEx("resources/KAISG.ttf", 96, null, 0);
 
@@ -83,9 +81,8 @@ main :: () {
                 font = LoadFontEx(droppedFiles.paths[0], cast(s32) fontSize, null, 0);
             }
 
-            UnloadDroppedFiles(droppedFiles);    // Unload filepaths from memory
+            UnloadDroppedFiles(droppedFiles);
         }
-
 
         BeginDrawing();
 
@@ -113,7 +110,7 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadFont(font);           // Font unloading
+    UnloadFont(font);
 
     CloseWindow();
 }

@@ -48,11 +48,11 @@ main :: () {
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [textures] example - image processing");
 
-    // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
 
-    imOrigin := LoadImage("resources/parrots.png");   // Loaded in CPU memory (RAM)
+
+    imOrigin := LoadImage("resources/parrots.png");
     ImageFormat(*imOrigin, xx PixelFormat.UNCOMPRESSED_R8G8B8A8);         // Format image to RGBA 32bit (required for texture update) <-- ISSUE
-    texture := LoadTextureFromImage(imOrigin);    // Image converted to texture, GPU memory (VRAM)
+    texture := LoadTextureFromImage(imOrigin);
 
     imCopy := ImageCopy(imOrigin);
 
@@ -103,7 +103,7 @@ main :: () {
         // Reload texture when required
         if (textureReload)
         {
-            UnloadImage(imCopy);                // Unload image-copy data
+            UnloadImage(imCopy);
             imCopy = ImageCopy(imOrigin);     // Restore image-copy from image-origin
 
             // NOTE: Image processing is a costly CPU process to be done every frame,
@@ -122,11 +122,10 @@ main :: () {
 
             pixels := LoadImageColors(imCopy);    // Load pixel data from image (RGBA 32bit)
             UpdateTexture(texture, pixels);             // Update texture with new image data
-            UnloadImageColors(pixels);                  // Unload pixels data from RAM
+            UnloadImageColors(pixels);
 
             textureReload = false;
         }
-
 
         BeginDrawing();
 
@@ -159,10 +158,9 @@ main :: () {
 
         EndDrawing();
     }
-    UnloadTexture(texture);       // Unload texture from VRAM
-    UnloadImage(imOrigin);        // Unload image-origin from RAM
-    UnloadImage(imCopy);          // Unload image-copy from RAM
+    UnloadTexture(texture);
+    UnloadImage(imOrigin);
+    UnloadImage(imCopy);
 
     CloseWindow();
-
 }

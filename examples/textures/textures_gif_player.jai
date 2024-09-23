@@ -47,8 +47,7 @@ main :: () {
     while !WindowShouldClose() {
 
         frameCounter += 1;
-        if (frameCounter >= frameDelay)
-        {
+        if (frameCounter >= frameDelay) {
             // Move to next frame
             // NOTE: If final frame is reached we return to first frame
             currentAnimFrame += 1;
@@ -70,7 +69,6 @@ main :: () {
 
         if      (frameDelay > MAX_FRAME_DELAY) frameDelay = MAX_FRAME_DELAY;
         else if (frameDelay < MIN_FRAME_DELAY) frameDelay = MIN_FRAME_DELAY;
-
 
         BeginDrawing();
 
@@ -97,9 +95,8 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(texScarfyAnim);   // Unload texture
-    UnloadImage(imScarfyAnim);      // Unload image (contains all frames)
+    UnloadTexture(texScarfyAnim);
+    UnloadImage(imScarfyAnim);
 
     CloseWindow();
-
 }

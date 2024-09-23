@@ -68,7 +68,6 @@ main :: () {
             timeCounter += deltaTime;   // We count time (seconds)
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

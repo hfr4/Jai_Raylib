@@ -72,7 +72,6 @@ main :: () {
         // Tranformation matrix for rotations
         model.transform = MatrixRotateXYZ(Vector3.{ xx (DEG2RAD*pitch), xx (DEG2RAD*yaw), xx (DEG2RAD*roll) });
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -97,8 +96,8 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadModel(model);     // Unload model data
-    UnloadTexture(texture); // Unload texture data
+    UnloadModel(model);
+    UnloadTexture(texture);
 
     CloseWindow();
 }

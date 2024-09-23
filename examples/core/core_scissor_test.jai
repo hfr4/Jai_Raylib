@@ -36,7 +36,6 @@ main :: () {
         scissorArea.x = GetMouseX() - scissorArea.width/2;
         scissorArea.y = GetMouseY() - scissorArea.height/2;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

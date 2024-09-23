@@ -85,7 +85,6 @@ main :: () {
 
         if (timePlayed > 1.0) timePlayed = 1.0;   // Make sure time played is no longer than music
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -109,11 +108,10 @@ main :: () {
 
     CloseAudioDevice();
 
-    free(delayBuffer);       // Free delay buffer
+    free(delayBuffer);
 
     CloseWindow();
 }
-
 // Audio effect: lowpass filter
 low: [2] float;
 AudioProcessEffectLPF :: (buffer: *void, frames: u32) #c_call {

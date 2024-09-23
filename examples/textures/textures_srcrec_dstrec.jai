@@ -20,11 +20,9 @@ main :: () {
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [textures] examples - texture source and destination rectangles");
 
-    // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
+    scarfy := LoadTexture("resources/scarfy.png");
 
-    scarfy := LoadTexture("resources/scarfy.png");        // Texture loading
-
-    frameWidth  := scarfy.width/6;
+    frameWidth  := scarfy.width / 6;
     frameHeight := scarfy.height;
 
     // Source rectangle (part of the texture to use for drawing)
@@ -55,15 +53,15 @@ main :: () {
             // rotation defines the texture rotation (using origin as rotation point)
             DrawTexturePro(scarfy, sourceRec, destRec, origin, cast(float)rotation, WHITE);
 
-            DrawLine(cast(s32)destRec.x, 0, cast(s32)destRec.x, SCREEN_HEIGHT, GRAY);
-            DrawLine(0, cast(s32)destRec.y, SCREEN_WIDTH, cast(s32)destRec.y, GRAY);
+            DrawLine(cast(s32) destRec.x, 0, cast(s32) destRec.x, SCREEN_HEIGHT, GRAY);
+            DrawLine(0, cast(s32) destRec.y, SCREEN_WIDTH, cast(s32) destRec.y, GRAY);
 
             DrawText("(c) Scarfy sprite by Eiden Marsal", SCREEN_WIDTH - 200, SCREEN_HEIGHT - 20, 10, GRAY);
 
         EndDrawing();
     }
 
-    UnloadTexture(scarfy);        // Texture unloading
+    UnloadTexture(scarfy);
 
     CloseWindow();
 }

@@ -64,7 +64,6 @@ main :: () {
             else collision.hit = false;
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

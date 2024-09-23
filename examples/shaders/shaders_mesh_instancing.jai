@@ -125,7 +125,7 @@ main :: () {
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    free(transforms);    // Free transforms
+    free(transforms);
 
     CloseWindow();          // Close window and OpenGL context
     //--------------------------------------------------------------------------------------

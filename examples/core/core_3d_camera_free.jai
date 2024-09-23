@@ -41,7 +41,6 @@ main :: () {
 
         if (IsKeyPressed(xx KeyboardKey.Z)) camera.target = .{ 0.0, 0.0, 0.0 };
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

@@ -128,7 +128,7 @@ LoadRenderTextureDepthTex :: (width: s32, height: s32) -> RenderTexture2D
     return target;
 }
 
-// Unload render texture from GPU memory (VRAM)
+
 UnloadRenderTextureDepthTex :: (target: *RenderTexture2D)
 {
     if (target.id > 0)

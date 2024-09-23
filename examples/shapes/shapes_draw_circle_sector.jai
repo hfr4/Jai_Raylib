@@ -38,7 +38,6 @@ main :: () {
 
         // NOTE: All variables update happens inside GUI control functions
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

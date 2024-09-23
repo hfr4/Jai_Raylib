@@ -36,14 +36,13 @@ main :: () {
     model.materials[0].maps[xx MaterialMapIndex.ALBEDO].texture = texture; // Set map diffuse texture
     mapPosition := Vector3.{ -8.0, 0.0, -8.0 };                             // Define model position
 
-    UnloadImage(image);             // Unload heightmap image from RAM, already uploaded to VRAM
+    UnloadImage(image);
 
     SetTargetFPS(60);
 
     while !WindowShouldClose() {
 
         UpdateCamera(*camera, xx CameraMode.ORBITAL);
-
 
         BeginDrawing();
 
@@ -65,8 +64,8 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(texture);     // Unload texture
-    UnloadModel(model);         // Unload model
+    UnloadTexture(texture);
+    UnloadModel(model);
 
     CloseWindow();
 }

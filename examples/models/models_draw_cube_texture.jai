@@ -37,7 +37,6 @@ main :: () {
 
         // TODO: Update your variables here
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -59,11 +58,10 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(texture); // Unload texture
+    UnloadTexture(texture);
 
     CloseWindow();
 }
-
 // Draw cube textured
 // NOTE: Cube position is the center position
 DrawCubeTexture :: (texture: Texture2D, position: Vector3, width: float, height: float, length: float, color: Color)

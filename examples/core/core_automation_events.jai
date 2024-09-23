@@ -109,7 +109,7 @@ main :: () {
                 camera.zoom     = 1.0;
             }
 
-            UnloadDroppedFiles(droppedFiles);   // Unload filepaths from memory
+            UnloadDroppedFiles(droppedFiles);
         }
 
 
@@ -265,7 +265,6 @@ main :: () {
 
         if (eventRecording || eventPlaying) frameCounter+= 1;
         else frameCounter = 0;
-
 
         BeginDrawing();
 

@@ -27,7 +27,6 @@ MAX_RECS_Y          :: 450/RECS_HEIGHT;
 
 PLAY_TIME_IN_FRAMES :: 240;                // At 60 fps = 4 seconds
 
-
 main :: () {
     SCREEN_WIDTH  :: 800;
     SCREEN_HEIGHT :: 450;
@@ -36,10 +35,8 @@ main :: () {
 
     recs: [MAX_RECS_X*MAX_RECS_Y] Rectangle;
 
-    for y: 0..MAX_RECS_Y - 1
-    {
-        for x: 0..MAX_RECS_X - 1
-        {
+    for y: 0..MAX_RECS_Y - 1 {
+        for x: 0..MAX_RECS_X - 1 {
             recs[y * MAX_RECS_X + x].x      = RECS_WIDTH  / 2.0 + RECS_WIDTH  * x;
             recs[y * MAX_RECS_X + x].y      = RECS_HEIGHT / 2.0 + RECS_HEIGHT * y;
             recs[y * MAX_RECS_X + x].width  = RECS_WIDTH;
@@ -85,8 +82,6 @@ main :: () {
 
             state = 0;
         }
-
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

@@ -22,25 +22,23 @@ main :: () {
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [textures] example - image drawing");
 
-    // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
+    cat := LoadImage("resources/cat.png");
+    ImageCrop(*cat, .{ 100, 10, 280, 380 });
+    ImageFlipHorizontal(*cat);
+    ImageResize(*cat, 150, 200);
 
-    cat := LoadImage("resources/cat.png");             // Load image in CPU memory (RAM)
-    ImageCrop(*cat, .{ 100, 10, 280, 380 });      // Crop an image piece
-    ImageFlipHorizontal(*cat);                              // Flip cropped image horizontally
-    ImageResize(*cat, 150, 200);                            // Resize flipped-cropped image
-
-    parrots := LoadImage("resources/parrots.png");     // Load image in CPU memory (RAM)
+    parrots := LoadImage("resources/parrots.png");
 
     // Draw one image over the other with a scaling of 1.5
     ImageDraw(*parrots, cat, .{ 0, 0, cast(float) cat.width, cast(float) cat.height }, .{ 30, 40, cat.width*1.5, cat.height*1.5 }, WHITE);
-    ImageCrop(*parrots, .{ 0, 50, cast(float) parrots.width, cast(float) parrots.height - 100 }); // Crop resulting image
+    ImageCrop(*parrots, .{ 0, 50, cast(float) parrots.width, cast(float) parrots.height - 100 });
 
     // Draw on the image with a few image draw methods
     ImageDrawPixel(*parrots, 10, 10, RAYWHITE);
     ImageDrawCircleLines(*parrots, 10, 10, 5, RAYWHITE);
     ImageDrawRectangle(*parrots, 5, 20, 10, 10, RAYWHITE);
 
-    UnloadImage(cat);       // Unload image from RAM
+    UnloadImage(cat);
 
     // Load custom font for frawing on image
     font := LoadFont("resources/custom_jupiter_crash.png");
@@ -48,17 +46,14 @@ main :: () {
     // Draw over image using custom font
     ImageDrawTextEx(*parrots, font, "PARROTS & CAT", .{ 300, 230 }, cast(float) font.baseSize, -2, WHITE);
 
-    UnloadFont(font);       // Unload custom font (already drawn used on image)
+    UnloadFont(font);
 
-    texture := LoadTextureFromImage(parrots);      // Image converted to texture, uploaded to GPU memory (VRAM)
-    UnloadImage(parrots);   // Once image has been converted to texture and uploaded to VRAM, it can be unloaded from RAM
+    texture := LoadTextureFromImage(parrots);
+    UnloadImage(parrots);
 
     SetTargetFPS(60);
 
     while !WindowShouldClose() {
-
-        // TODO: Update your variables here
-
 
         BeginDrawing();
 
@@ -73,8 +68,7 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(texture);       // Texture unloading
+    UnloadTexture(texture);
 
     CloseWindow();
-
 }

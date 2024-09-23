@@ -14,7 +14,6 @@
 #import "Basic";
 #import "Raylib";
 
-
 MAP_TILE_SIZE          :: 32; // Tiles size 32x32 pixels
 PLAYER_SIZE            :: 16; // Player size
 PLAYER_TILE_VISIBILITY :: 2;  // Player can see 2 tiles around its position
@@ -143,10 +142,11 @@ main :: () {
 
         EndDrawing();
     }
-    array_free(map.tileIds);      // Free allocated map tile ids
-    array_free(map.tileFog);      // Free allocated map tile fog state
 
-    UnloadRenderTexture(fogOfWar);  // Unload render texture
+    array_free(map.tileIds);
+    array_free(map.tileFog);
+
+    UnloadRenderTexture(fogOfWar);
 
     CloseWindow();
 }

@@ -72,7 +72,6 @@ main :: () {
         if (collision) playerColor = RED;
         else           playerColor = GREEN;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

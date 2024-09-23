@@ -149,7 +149,6 @@ main :: () {
         }
         */
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -169,15 +168,14 @@ main :: () {
         EndDrawing();
     }
 
-    free(data);                 // Unload sine wave data
-    free(writeBuf);             // Unload write buffer
+    free(data);
+    free(writeBuf);
 
     UnloadAudioStream(stream);   // Close raw audio stream and delete buffers from RAM
     CloseAudioDevice();
 
     CloseWindow();
 }
-
 // Audio input processing callback
 AudioInputCallback :: (buffer: *void, frames: u32) #c_call {
     new_context: Context;

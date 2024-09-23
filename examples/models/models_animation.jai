@@ -63,7 +63,6 @@ main :: () {
             if (animFrameCounter >= anims[0].frameCount) animFrameCounter = 0;
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -87,9 +86,9 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(texture);                     // Unload texture
-    UnloadModelAnimations(anims, animsCount);   // Unload model animations data
-    UnloadModel(model);                         // Unload model
+    UnloadTexture(texture);
+    UnloadModelAnimations(anims, animsCount);
+    UnloadModel(model);
 
     CloseWindow();
 }

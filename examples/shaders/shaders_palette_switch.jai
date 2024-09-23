@@ -134,6 +134,6 @@ main :: () {
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    UnloadShader(shader);       // Unload shader
+    UnloadShader(shader);
 
     CloseWindow();}

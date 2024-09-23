@@ -60,7 +60,6 @@ main :: () {
             if (IsMouseButtonReleased(xx MouseButton.LEFT)) mouseScaleMode = false;
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

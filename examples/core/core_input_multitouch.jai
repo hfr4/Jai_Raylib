@@ -38,7 +38,6 @@ main :: () {
         // Get touch points positions
         for i: 0..tCount - 1 touchPositions[i] = GetTouchPosition(xx i);
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

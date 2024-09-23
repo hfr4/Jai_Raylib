@@ -39,7 +39,7 @@ main :: () {
 
     // Get map image data to be used for collision detection
     mapPixels := LoadImageColors(imMap);
-    UnloadImage(imMap);             // Unload image from RAM
+    UnloadImage(imMap);
 
     mapPosition := Vector3.{ -16.0, 0.0, -8.0 };  // Set model position
 
@@ -83,7 +83,6 @@ main :: () {
             }
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -103,11 +102,11 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadImageColors(mapPixels);   // Unload color array
+    UnloadImageColors(mapPixels);
 
-    UnloadTexture(cubicmap);        // Unload cubicmap texture
-    UnloadTexture(texture);         // Unload map texture
-    UnloadModel(model);             // Unload map model
+    UnloadTexture(cubicmap);
+    UnloadTexture(texture);
+    UnloadModel(model);
 
     CloseWindow();
 }

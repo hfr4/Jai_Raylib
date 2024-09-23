@@ -124,9 +124,9 @@ main :: () {
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    UnloadModel(model);     // Unload the model
-    UnloadModel(cube);      // Unload the model
-    UnloadShader(shader);   // Unload shader
+    UnloadModel(model);
+    UnloadModel(cube);
+    UnloadShader(shader);
 
     CloseWindow();          // Close window and OpenGL context
     //--------------------------------------------------------------------------------------

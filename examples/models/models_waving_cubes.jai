@@ -49,7 +49,6 @@ main :: () {
         camera.position.x = cast(float) Math.cos(cameraTime)*40.0;
         camera.position.z = cast(float) Math.sin(cameraTime)*40.0;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

@@ -302,13 +302,13 @@ main :: () {
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    UnloadModel(model);     // Unload the models
+    UnloadModel(model);
     UnloadModel(cube);
 
-    UnloadShader(deferredShader);   // Unload shaders
+    UnloadShader(deferredShader);
     UnloadShader(gbufferShader);
 
-    // Unload geometry buffer and all attached textures
+
     rlUnloadFramebuffer(gBuffer.framebuffer);
     rlUnloadTexture(gBuffer.positionTexture);
     rlUnloadTexture(gBuffer.normalTexture);

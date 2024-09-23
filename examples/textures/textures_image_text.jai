@@ -29,7 +29,7 @@ main :: () {
     ImageDrawTextEx(*parrots, font, "[Parrots font drawing]", .{ 20.0, 20.0 }, cast(float)font.baseSize, 0.0, RED);
 
     texture := LoadTextureFromImage(parrots);  // Image converted to texture, uploaded to GPU memory (VRAM)
-    UnloadImage(parrots);   // Once image has been converted to texture and uploaded to VRAM, it can be unloaded from RAM
+    UnloadImage(parrots);
 
     position := Vector2.{ cast(float)(SCREEN_WIDTH/2 - texture.width/2), cast(float)(SCREEN_HEIGHT/2 - texture.height/2 - 20) };
 
@@ -42,19 +42,16 @@ main :: () {
         if (IsKeyDown(xx KeyboardKey.SPACE)) showFont = true;
         else                                 showFont = false;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
 
-            if (!showFont)
-            {
+            if (!showFont) {
                 // Draw texture with text already drawn inside
                 DrawTextureV(texture, position, WHITE);
 
                 // Draw text directly using sprite font
-                DrawTextEx(font, "[Parrots font drawing]", .{ position.x + 20,
-                           position.y + 20 + 280 }, cast(float)font.baseSize, 0.0, WHITE);
+                DrawTextEx(font, "[Parrots font drawing]", .{ position.x + 20, position.y + 20 + 280 }, cast(float) font.baseSize, 0.0, WHITE);
             }
             else DrawTexture(font.texture, SCREEN_WIDTH/2 - font.texture.width/2, 50, BLACK);
 
@@ -62,9 +59,9 @@ main :: () {
 
         EndDrawing();
     }
-    UnloadTexture(texture);     // Texture unloading
+    UnloadTexture(texture);
 
-    UnloadFont(font);           // Unload custom font
+    UnloadFont(font);
 
     CloseWindow();
 }

@@ -177,7 +177,7 @@ main :: () {
 
 	}
 
-	// Unload models data (GPU VRAM)
+
 	for i: 0..MAX_VOX_FILES - 1 UnloadModel(models[i]);
 
 	CloseWindow();

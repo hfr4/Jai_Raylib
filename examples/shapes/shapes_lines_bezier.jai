@@ -29,25 +29,20 @@ main :: () {
     SetTargetFPS(60);
 
     while !WindowShouldClose() {
-
         mouse := GetMousePosition();
 
         if      (CheckCollisionPointCircle(mouse, startPoint, 10.0) && IsMouseButtonDown(xx MouseButton.LEFT)) moveStartPoint = true;
         else if (CheckCollisionPointCircle(mouse, endPoint  , 10.0) && IsMouseButtonDown(xx MouseButton.LEFT)) moveEndPoint   = true;
 
-        if (moveStartPoint)
-        {
+        if (moveStartPoint) {
             startPoint = mouse;
             if (IsMouseButtonReleased(xx MouseButton.LEFT)) moveStartPoint = false;
         }
 
-        if (moveEndPoint)
-        {
+        if (moveEndPoint) {
             endPoint = mouse;
             if (IsMouseButtonReleased(xx MouseButton.LEFT)) moveEndPoint = false;
         }
-
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -63,5 +58,6 @@ main :: () {
 
         EndDrawing();
     }
+
     CloseWindow();
 }

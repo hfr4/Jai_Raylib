@@ -90,7 +90,6 @@ main :: () {
         // Toggle mesh drawing
         if (IsKeyPressed(xx KeyboardKey.M)) drawMesh ^= 1;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -150,10 +149,10 @@ main :: () {
     }
 
 
-    // Unload model animations data
+
     UnloadModelAnimations(anims, animsCount);
 
-    UnloadModel(model);         // Unload model
+    UnloadModel(model);
 
     CloseWindow();
 }

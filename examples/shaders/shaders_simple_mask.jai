@@ -128,10 +128,10 @@ main :: () {
     UnloadModel(model2);
     UnloadModel(model3);
 
-    UnloadTexture(texDiffuse);  // Unload default diffuse texture
-    UnloadTexture(texMask);     // Unload texture mask
+    UnloadTexture(texDiffuse);
+    UnloadTexture(texMask);
 
-    UnloadShader(shader);       // Unload shader
+    UnloadShader(shader);
 
     CloseWindow();
 }

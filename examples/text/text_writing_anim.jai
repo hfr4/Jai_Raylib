@@ -20,7 +20,7 @@ main :: () {
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [text] example - text writing anim");
 
-    message :=  "This sample illustrates a text writing\nanimation effect! Check it out! ;)";
+    message := "This sample illustrates a text writing\nanimation effect! Check it out! ;)";
 
     framesCounter : s32 = 0;
 
@@ -33,7 +33,6 @@ main :: () {
 
         if (IsKeyPressed(xx KeyboardKey.ENTER)) framesCounter = 0;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -45,5 +44,6 @@ main :: () {
 
         EndDrawing();
     }
+
     CloseWindow();
 }

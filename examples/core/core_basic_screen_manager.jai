@@ -80,7 +80,6 @@ main :: () {
                 }
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

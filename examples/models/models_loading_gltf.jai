@@ -60,7 +60,6 @@ main :: () {
         animCurrentFrame = (animCurrentFrame + 1) % anim.frameCount;
         UpdateModelAnimation(model, anim, animCurrentFrame);
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -76,10 +75,9 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadModel(model);         // Unload model and meshes/material
+    UnloadModel(model);
 
     CloseWindow();
 }
-
 
 

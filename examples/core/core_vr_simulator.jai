@@ -120,11 +120,10 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadVrStereoConfig(config);   // Unload stereo config
+    UnloadVrStereoConfig(config);
 
-    UnloadRenderTexture(target);    // Unload stereo render fbo
-    UnloadShader(distortion);       // Unload distortion shader
+    UnloadRenderTexture(target);
+    UnloadShader(distortion);
 
     CloseWindow();
-
 }

@@ -22,15 +22,11 @@ main :: () {
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [text] example - SDF fonts");
 
-    // NOTE: Textures/Fonts MUST be loaded after Window initialization (OpenGL context is required)
-
     msg := "Signed Distance Fields";
 
-    // Loading file to memory
     fileSize : s32 = 0;
     fileData := LoadFileData("resources/anonymous_pro_bold.ttf", *fileSize);
 
-    // Default font generation from TTF font
     fontDefault: Font;
     fontDefault.baseSize   = 16;
     fontDefault.glyphCount = 95;
@@ -54,7 +50,7 @@ main :: () {
     fontSDF.texture = LoadTextureFromImage(atlas);
     UnloadImage(atlas);
 
-    UnloadFileData(fileData);      // Free memory from loaded file
+    UnloadFileData(fileData);
 
     // Load SDF required shader (we use default vertex shader)
     shader := LoadShader(null, TextFormat("resources/shaders/glsl%/sdf.fs", GLSL_VERSION));
@@ -81,22 +77,18 @@ main :: () {
         fontPosition.x = GetScreenWidth() / 2  - textSize.x / 2;
         fontPosition.y = GetScreenHeight() / 2 - textSize.y / 2 + 80;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
 
-            if (currentFont == 1)
-            {
+            if (currentFont == 1) {
                 // NOTE: SDF fonts require a custom SDf shader to compute fragment color
                 BeginShaderMode(shader);    // Activate SDF font shader
                     DrawTextEx(fontSDF, msg.data, fontPosition, fontSize, 0, BLACK);
                 EndShaderMode();            // Activate our default shader for next drawings
 
                 DrawTexture(fontSDF.texture, 10, 10, BLACK);
-            }
-            else
-            {
+            } else {
                 DrawTextEx(fontDefault, msg.data, fontPosition, fontSize, 0, BLACK);
                 DrawTexture(fontDefault.texture, 10, 10, BLACK);
             }
@@ -112,10 +104,10 @@ main :: () {
 
         EndDrawing();
     }
-    UnloadFont(fontDefault);    // Default font unloading
-    UnloadFont(fontSDF);        // SDF font unloading
+    UnloadFont(fontDefault);
+    UnloadFont(fontSDF);
 
-    UnloadShader(shader);       // Unload SDF shader
+    UnloadShader(shader);
 
     CloseWindow();
 }

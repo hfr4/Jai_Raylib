@@ -27,7 +27,6 @@ main :: () {
     SetConfigFlags(xx ConfigFlags.WINDOW_RESIZABLE); // Make the window resizable
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [textures] example - Draw part of a texture tiled");
 
-    // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
     texPattern := LoadTexture("resources/patterns.png");
     SetTextureFilter(texPattern, xx TextureFilter.TRILINEAR); // Makes the texture smoother when upscaled
 
@@ -114,7 +113,6 @@ main :: () {
         // Reset
         if (IsKeyPressed(xx KeyboardKey.SPACE)) { rotation = 0.0; scale = 1.0; }
 
-
         BeginDrawing();
             ClearBackground(RAYWHITE);
 
@@ -149,14 +147,12 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(texPattern);        // Unload texture
+    UnloadTexture(texPattern);
 
     CloseWindow();
 }
-
 // Draw part of a texture (defined by a rectangle) with rotation and scale tiled into dest.
-DrawTextureTiled :: (texture: Texture2D, source: Rectangle, dest: Rectangle, origin: Vector2, rotation: float, scale: float, tint: Color)
-{
+DrawTextureTiled :: (texture: Texture2D, source: Rectangle, dest: Rectangle, origin: Vector2, rotation: float, scale: float, tint: Color) {
     if ((texture.id <= 0)   || (scale <= 0.0))       return;  // Wanna see a infinite loop?!...just delete this line!
     if ((source.width == 0) || (source.height == 0)) return;
 

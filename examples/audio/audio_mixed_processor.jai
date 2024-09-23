@@ -81,7 +81,6 @@ main :: () {
 
     CloseWindow();
 }
-
 // Audio processing function
 ProcessAudio :: (buffer: *void, frames: u32) #c_call {
     new_context: Context;

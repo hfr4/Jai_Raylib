@@ -41,7 +41,7 @@ main :: () {
 
     mapPosition := Vector3.{ -16.0, 0.0, -8.0 };          // Set model position
 
-    UnloadImage(image);     // Unload cubesmap image from RAM, already uploaded to VRAM
+    UnloadImage(image);
 
     pause := false;     // Pause camera orbital rotation (and zoom)
 
@@ -52,7 +52,6 @@ main :: () {
         if (IsKeyPressed(xx KeyboardKey.P)) pause = !pause;
 
         if (!pause) UpdateCamera(*camera, xx CameraMode.ORBITAL);
-
 
         BeginDrawing();
 
@@ -75,9 +74,9 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(cubicmap);    // Unload cubicmap texture
-    UnloadTexture(texture);     // Unload map texture
-    UnloadModel(model);         // Unload map model
+    UnloadTexture(cubicmap);
+    UnloadTexture(texture);
+    UnloadModel(model);
 
     CloseWindow();
 }

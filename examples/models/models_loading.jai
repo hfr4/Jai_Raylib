@@ -76,7 +76,7 @@ main :: () {
                     IsFileExtension(droppedFiles.paths[0], ".iqm") ||
                     IsFileExtension(droppedFiles.paths[0], ".m3d"))       // Model file formats supported
                 {
-                    UnloadModel(model);                         // Unload previous model
+                    UnloadModel(model);
                     model = LoadModel(droppedFiles.paths[0]);   // Load new model
                     model.materials[0].maps[xx MaterialMapIndex.ALBEDO].texture = texture; // Set current map diffuse texture
 
@@ -86,14 +86,14 @@ main :: () {
                 }
                 else if (IsFileExtension(droppedFiles.paths[0], ".png"))  // Texture file formats supported
                 {
-                    // Unload current model texture and load new one
+
                     UnloadTexture(texture);
                     texture = LoadTexture(droppedFiles.paths[0]);
                     model.materials[0].maps[xx MaterialMapIndex.ALBEDO].texture = texture;
                 }
             }
 
-            UnloadDroppedFiles(droppedFiles);    // Unload filepaths from memory
+            UnloadDroppedFiles(droppedFiles);
         }
 
         // Select model on mouse click
@@ -103,7 +103,6 @@ main :: () {
             if (GetRayCollisionBox(GetMouseRay(GetMousePosition(), camera), bounds).hit) selected = !selected;
             else selected = false;
         }
-
 
         BeginDrawing();
 
@@ -129,9 +128,8 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(texture);     // Unload texture
-    UnloadModel(model);         // Unload model
+    UnloadTexture(texture);
+    UnloadModel(model);
 
     CloseWindow();
-
 }

@@ -31,7 +31,6 @@ SplineType :: enum {
     BEZIER;           // Cubic Bezier
 }
 
-
 main :: () {
     SCREEN_WIDTH  :: 800;
     SCREEN_HEIGHT :: 450;
@@ -54,7 +53,7 @@ main :: () {
     selectedPoint := -1;
     focusedPoint := -1;
     selectedControlPoint: *Vector2;
-    focusedControlPoint: *Vector2;
+    focusedControlPoint:  *Vector2;
 
     // Cubic Bezier control points initialization
     control: [MAX_SPLINE_POINTS-1] ControlPoint;
@@ -138,7 +137,6 @@ main :: () {
         else if (IsKeyPressed(xx KeyboardKey.THREE)) splineTypeActive = .CATMULLROM;
         else if (IsKeyPressed(xx KeyboardKey.FOUR))  splineTypeActive = .BEZIER;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -216,8 +214,7 @@ main :: () {
                 }
             }
 
-            if (splineHelpersActive)
-            {
+            if (splineHelpersActive) {
                 // Draw spline point helpers
                 for i: 0..pointCount - 1
                 {
@@ -250,5 +247,6 @@ main :: () {
 
         EndDrawing();
     }
+
     CloseWindow();
 }

@@ -105,7 +105,6 @@ main :: () {
                 it.speed      = cast(float) GetRandomValue(1, 100)/2000.0;
             }
         }
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

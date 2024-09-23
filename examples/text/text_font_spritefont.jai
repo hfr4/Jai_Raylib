@@ -34,10 +34,9 @@ main :: () {
     msg2 := "...and this is ANOTHER CUSTOM font...";
     msg3 := "...and a THIRD one! GREAT! :D";
 
-    // NOTE: Textures/Fonts MUST be loaded after Window initialization (OpenGL context is required)
-    font1 := LoadFont("resources/custom_mecha.png");          // Font loading
-    font2 := LoadFont("resources/custom_alagard.png");        // Font loading
-    font3 := LoadFont("resources/custom_jupiter_crash.png");  // Font loading
+    font1 := LoadFont("resources/custom_mecha.png");
+    font2 := LoadFont("resources/custom_alagard.png");
+    font3 := LoadFont("resources/custom_jupiter_crash.png");
 
     fontPosition1 := Vector2.{
         SCREEN_WIDTH  / 2.0 - MeasureTextEx(font1, msg1.data, cast(float) font1.baseSize, -3.0).x / 2.0,
@@ -68,9 +67,9 @@ main :: () {
 
         EndDrawing();
     }
-    UnloadFont(font1);      // Font unloading
-    UnloadFont(font2);      // Font unloading
-    UnloadFont(font3);      // Font unloading
+    UnloadFont(font1);
+    UnloadFont(font2);
+    UnloadFont(font3);
 
     CloseWindow();
 }

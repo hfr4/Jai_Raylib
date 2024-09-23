@@ -30,7 +30,6 @@ main :: () {
 
         boxPositionY -= cast(s32) (GetMouseWheelMove()*scrollSpeed);
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

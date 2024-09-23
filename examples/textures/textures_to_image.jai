@@ -22,24 +22,19 @@ main :: () {
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [textures] example - texture to image");
 
-    // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
+    image   := LoadImage("resources/raylib_logo.png");
+    texture := LoadTextureFromImage(image);
+    UnloadImage(image);
 
-    image := LoadImage("resources/raylib_logo.png");  // Load image data into CPU memory (RAM)
-    texture := LoadTextureFromImage(image);       // Image converted to texture, GPU memory (RAM -> VRAM)
-    UnloadImage(image);                                    // Unload image data from CPU memory (RAM)
+    image = LoadImageFromTexture(texture);
+    UnloadTexture(texture);
 
-    image = LoadImageFromTexture(texture);                 // Load image from GPU texture (VRAM -> RAM)
-    UnloadTexture(texture);                                // Unload texture from GPU memory (VRAM)
-
-    texture = LoadTextureFromImage(image);                 // Recreate texture from retrieved image data (RAM -> VRAM)
-    UnloadImage(image);                                    // Unload retrieved image data from CPU memory (RAM)
+    texture = LoadTextureFromImage(image);
+    UnloadImage(image);
 
     SetTargetFPS(60);
 
     while !WindowShouldClose() {
-
-        // TODO: Update your variables here
-
 
         BeginDrawing();
 
@@ -52,8 +47,7 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(texture);       // Texture unloading
+    UnloadTexture(texture);
 
     CloseWindow();
-
 }

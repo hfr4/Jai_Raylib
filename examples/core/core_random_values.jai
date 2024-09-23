@@ -40,7 +40,6 @@ main :: () {
             framesCounter = 0;
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

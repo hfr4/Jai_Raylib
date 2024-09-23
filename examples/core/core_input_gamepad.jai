@@ -46,7 +46,6 @@ main :: () {
 
         // ...
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

@@ -81,7 +81,6 @@ main :: () {
 
         if (IsKeyPressed(xx KeyboardKey.R)) framesCounter = 0;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

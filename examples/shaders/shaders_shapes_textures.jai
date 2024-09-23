@@ -102,8 +102,8 @@ main :: () {
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    UnloadShader(shader);       // Unload shader
-    UnloadTexture(fudesumi);    // Unload texture
+    UnloadShader(shader);
+    UnloadTexture(fudesumi);
 
     CloseWindow();
 

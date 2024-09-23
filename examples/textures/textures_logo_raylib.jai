@@ -20,15 +20,11 @@ main :: () {
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [textures] example - texture loading and drawing");
 
-    // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
-    texture := LoadTexture("resources/raylib_logo.png");        // Texture loading
+    texture := LoadTexture("resources/raylib_logo.png");
 
     SetTargetFPS(60);
 
     while !WindowShouldClose() {
-
-        // TODO: Update your variables here
-
 
         BeginDrawing();
 
@@ -41,8 +37,7 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(texture);       // Texture unloading
+    UnloadTexture(texture);
 
     CloseWindow();
-
 }

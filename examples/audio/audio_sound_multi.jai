@@ -48,7 +48,6 @@ main :: () {
 
             // Note: a better way would be to look at the list for the first sound that is not playing and use that slot
         }
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -59,8 +58,8 @@ main :: () {
     }
 
     for i: 1..MAX_SOUNDS - 1
-        UnloadSoundAlias(soundArray[i]);     // Unload sound aliases
-    UnloadSound(soundArray[0]);              // Unload source sound data
+        UnloadSoundAlias(soundArray[i]);
+    UnloadSound(soundArray[0]);
 
     CloseAudioDevice();     // Close audio device
 

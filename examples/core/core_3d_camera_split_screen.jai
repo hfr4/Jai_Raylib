@@ -154,9 +154,8 @@ main :: () {
             DrawRectangle(GetScreenWidth()/2 - 2, 0, 4, GetScreenHeight(), LIGHTGRAY);
         EndDrawing();
     }
-    UnloadRenderTexture(screenPlayer1); // Unload render texture
-    UnloadRenderTexture(screenPlayer2); // Unload render texture
+    UnloadRenderTexture(screenPlayer1);
+    UnloadRenderTexture(screenPlayer2);
 
     CloseWindow();
-
 }

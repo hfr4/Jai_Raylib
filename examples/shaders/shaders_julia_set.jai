@@ -184,8 +184,8 @@ main :: () {
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    UnloadShader(shader);               // Unload shader
-    UnloadRenderTexture(target);        // Unload render texture
+    UnloadShader(shader);
+    UnloadRenderTexture(target);
 
     CloseWindow();                      // Close window and OpenGL context
     //--------------------------------------------------------------------------------------

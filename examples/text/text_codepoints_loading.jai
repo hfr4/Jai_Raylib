@@ -44,7 +44,7 @@ main :: () {
     // Set line spacing for multiline text when line breaks are included \n
     SetTextLineSpacing(20);
 
-    // Free codepoints, atlas has already been generated
+
     free(codepointsNoDups);
 
     showFontAtlas := false;
@@ -72,7 +72,6 @@ main :: () {
             ptr -= codepointSize;
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -97,11 +96,11 @@ main :: () {
 
         EndDrawing();
     }
-    UnloadFont(font);     // Unload font
+
+    UnloadFont(font);
 
     CloseWindow();
 }
-
 // Remove codepoint duplicates if requested
 // WARNING: This process could be a bit slow if there text to process is very long
 CodepointRemoveDuplicates :: (codepoints: *s32, codepointCount: s32, codepointsResultCount: *s32) -> *s32 {

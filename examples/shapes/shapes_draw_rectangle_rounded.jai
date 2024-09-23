@@ -38,7 +38,6 @@ main :: () {
 
         rec := Rectangle.{ (cast(float) GetScreenWidth() - width - 250)/2, (GetScreenHeight() - height)/2.0, cast(float) width, cast(float) height };
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);

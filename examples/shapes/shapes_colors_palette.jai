@@ -57,7 +57,6 @@ main :: () {
             else colorState[i] = 0;
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -82,5 +81,4 @@ main :: () {
     }
 
     CloseWindow();
-
 }

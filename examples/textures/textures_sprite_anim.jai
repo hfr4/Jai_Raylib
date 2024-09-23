@@ -23,8 +23,7 @@ main :: () {
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [texture] example - sprite anim");
 
-    // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
-    scarfy := LoadTexture("resources/scarfy.png");        // Texture loading
+    scarfy := LoadTexture("resources/scarfy.png");
 
     position := Vector2.{ 350.0, 280.0 };
     frameRec := Rectangle.{ 0.0, 0.0, cast(float)scarfy.width/6, cast(float)scarfy.height };
@@ -56,7 +55,6 @@ main :: () {
         if      (framesSpeed > MAX_FRAME_SPEED) framesSpeed = MAX_FRAME_SPEED;
         else if (framesSpeed < MIN_FRAME_SPEED) framesSpeed = MIN_FRAME_SPEED;
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
@@ -69,10 +67,9 @@ main :: () {
             DrawText(TextFormat("%02i FPS", framesSpeed), 575, 210, 10, DARKGRAY);
             DrawText("PRESS RIGHT/LEFT KEYS to CHANGE SPEED!", 290, 240, 10, DARKGRAY);
 
-            for i: 0..MAX_FRAME_SPEED - 1
-            {
-                if (i < framesSpeed) DrawRectangle( cast(s32) (250 + 21* i), 205, 20, 20, RED);
-                DrawRectangleLines(cast(s32) (250 + 21*i), 205, 20, 20, MAROON);
+            for i: 0..MAX_FRAME_SPEED - 1 {
+                if (i < framesSpeed) DrawRectangle( cast(s32) (250 + 21 * i), 205, 20, 20, RED);
+                DrawRectangleLines(cast(s32) (250 + 21 * i), 205, 20, 20, MAROON);
             }
 
             DrawTextureRec(scarfy, frameRec, position, WHITE);  // Draw part of the texture
@@ -82,7 +79,7 @@ main :: () {
         EndDrawing();
     }
 
-    UnloadTexture(scarfy);       // Texture unloading
+    UnloadTexture(scarfy);
 
     CloseWindow();
 }

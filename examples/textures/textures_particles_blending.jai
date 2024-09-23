@@ -16,14 +16,13 @@
 
 MAX_PARTICLES :: 200;
 
-// Particle structure with basic data
 Particle :: struct {
     position: Vector2;
     color:    Color;
     alpha:    float;
     size:     float;
     rotation: float;
-    active:   bool;        // NOTE: Use it to activate/deactive particle
+    active:   bool;
 }
 
 main :: () {
@@ -89,7 +88,6 @@ main :: () {
             if (blending == .ALPHA) blending = .ADDITIVE;
             else                    blending = .ALPHA;
         }
-
 
         BeginDrawing();
 

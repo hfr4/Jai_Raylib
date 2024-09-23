@@ -72,7 +72,6 @@ main :: () {
             }
         }
 
-
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
