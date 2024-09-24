@@ -32,13 +32,13 @@ main :: () {
 
             ClearBackground(RAYWHITE);
 
-            DrawText(TextFormat("Score: %08", score), 200, 80, 20, RED);
+            DrawText(TextFormat("Score: %", score), 200, 80, 20, RED);
 
-            DrawText(TextFormat("HiScore: %08", hiscore), 200, 120, 20, GREEN);
+            DrawText(TextFormat("HiScore: %", hiscore), 200, 120, 20, GREEN);
 
-            DrawText(TextFormat("Lives: %02", lives), 200, 160, 40, BLUE);
+            DrawText(TextFormat("Lives: %", lives), 200, 160, 40, BLUE);
 
-            DrawText(TextFormat("Elapsed Time: %02.02 ms", GetFrameTime()*1000), 200, 220, 20, BLACK);
+            DrawText(TextFormat("Elapsed Time: % ms", GetFrameTime()*1000), 200, 220, 20, BLACK);
 
         EndDrawing();
     }

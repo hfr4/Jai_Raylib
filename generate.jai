@@ -111,6 +111,7 @@ generate_bindings :: () {
     generate_library_declarations       = false;
     generate_printf_wrappers            = true;
     generate_compile_time_struct_checks = false;
+    try_to_preserve_comments            = false;
     header                              = BINDINGS_HEADER;
     footer                              = BINDINGS_FOOTER;
     array_add(*libpaths     , "Raylib/lib");
@@ -180,16 +181,9 @@ BLACK      :: Color.{ 0  , 0  , 0  , 255 };
 BLANK      :: Color.{ 0  , 0  , 0  , 0   };
 MAGENTA    :: Color.{ 255, 0  , 255, 255 };
 RAYWHITE   :: Color.{ 245, 245, 245, 255 };
-
-MATERIAL_MAP_DIFFUSE    :: MaterialMapIndex.ALBEDO;
-MATERIAL_MAP_SPECULAR   :: MaterialMapIndex.METALNESS;
-SHADER_LOC_MAP_DIFFUSE  :: ShaderLocationIndex.MAP_ALBEDO;
-SHADER_LOC_MAP_SPECULAR :: ShaderLocationIndex.MAP_METALNESS;
-MOUSE_LEFT_BUTTON       :: MouseButton.LEFT;
-MOUSE_RIGHT_BUTTON      :: MouseButton.RIGHT;
-MOUSE_MIDDLE_BUTTON     :: MouseButton.MIDDLE;
 DONE;
 
+// TODO : are all system_library really necessary ?
 BINDINGS_FOOTER :: #string DONE
 user32  :: #system_library,link_always "user32";
 gdi32   :: #system_library,link_always "gdi32";

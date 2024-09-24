@@ -58,7 +58,7 @@ main :: () {
 
             DrawText("MUSIC SHOULD BE PLAYING!", 255, 150, 20, LIGHTGRAY);
 
-            DrawText(TextFormat("exponent = %.2", exponent), 215, 180, 20, LIGHTGRAY);
+            DrawText(TextFormat("exponent = %", exponent), 215, 180, 20, LIGHTGRAY);
 
             DrawRectangle(199, 199, 402, 34, LIGHTGRAY);
             for i: 0..399

@@ -97,7 +97,7 @@ main :: () {
             else                  DrawText("default font", 315, 40, 30, GRAY);
 
             DrawText("FONT SIZE: 16.0", GetScreenWidth() - 240, 20, 20, DARKGRAY);
-            DrawText(TextFormat("RENDER SIZE: %02.02", fontSize), GetScreenWidth() - 240, 50, 20, DARKGRAY);
+            DrawText(TextFormat("RENDER SIZE: %", fontSize), GetScreenWidth() - 240, 50, 20, DARKGRAY);
             DrawText("Use MOUSE WHEEL to SCALE TEXT!", GetScreenWidth() - 240, 90, 10, DARKGRAY);
 
             DrawText("HOLD SPACE to USE SDF FONT VERSION!", 340, GetScreenHeight() - 30, 20, MAROON);

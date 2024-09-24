@@ -107,8 +107,8 @@ main :: () {
                     DrawRectangle(170, 30, 15, cast(s32) (((1 + GetGamepadAxisMovement(gamepad, xx GamepadAxis.LEFT_TRIGGER))/2)*70), RED);
                     DrawRectangle(604, 30, 15, cast(s32) (((1 + GetGamepadAxisMovement(gamepad, xx GamepadAxis.RIGHT_TRIGGER))/2)*70), RED);
 
-                    //DrawText(TextFormat("Xbox axis LT: %02.02", GetGamepadAxisMovement(gamepad, xx GamepadAxis.LEFT_TRIGGER)), 10, 40, 10, BLACK);
-                    //DrawText(TextFormat("Xbox axis RT: %02.02", GetGamepadAxisMovement(gamepad, xx GamepadAxis.RIGHT_TRIGGER)), 10, 60, 10, BLACK);
+                    //DrawText(TextFormat("Xbox axis LT: %", GetGamepadAxisMovement(gamepad, xx GamepadAxis.LEFT_TRIGGER)), 10, 40, 10, BLACK);
+                    //DrawText(TextFormat("Xbox axis RT: %", GetGamepadAxisMovement(gamepad, xx GamepadAxis.RIGHT_TRIGGER)), 10, 60, 10, BLACK);
                 }
                 else if (TextIsEqual(GetGamepadName(gamepad), PS3_NAME_ID))
                 {

@@ -76,8 +76,8 @@ main :: () {
 
             DrawCircle(cast(s32) position, GetScreenHeight()/2 - 25, 50, RED);
 
-            DrawText(TextFormat("%03.0 ms", timeCounter*1000.0), cast(s32) position - 40, GetScreenHeight()/2 - 100, 20, MAROON);
-            DrawText(TextFormat("PosX: %03.0", position), cast(s32) position - 50, GetScreenHeight()/2 + 40, 20, BLACK);
+            DrawText(TextFormat("% ms", timeCounter*1000.0), cast(s32) position - 40, GetScreenHeight()/2 - 100, 20, MAROON);
+            DrawText(TextFormat("PosX: %", position), cast(s32) position - 50, GetScreenHeight()/2 + 40, 20, BLACK);
 
             DrawText("Circle is moving at a constant 200 pixels/sec,\nindependently of the frame rate.", 10, 10, 20, DARKGRAY);
             DrawText("PRESS SPACE to PAUSE MOVEMENT", 10, GetScreenHeight() - 60, 20, GRAY);

@@ -36,23 +36,21 @@ main :: () {
             ClearBackground(RAYWHITE);
 
             y : s32 = 5;
-            for i: 0..3     // MAX_GAMEPADS = 4
-            {
-                if (IsGamepadAvailable(xx i))
-                {
+
+            // MAX_GAMEPADS = 4
+            for i: 0..3 {
+                if (IsGamepadAvailable(xx i)) {
                     DrawText(TextFormat("Gamepad name: %", GetGamepadName(xx i)), 10, y, 10, BLACK);
                     y += 11;
                     DrawText(TextFormat("\tAxis count:   %", GetGamepadAxisCount(xx i)), 10, y, 10, BLACK);
                     y += 11;
 
-                    for axis: 0..GetGamepadAxisCount(xx i) - 1
-                    {
+                    for axis: 0..GetGamepadAxisCount(xx i) - 1 {
                         DrawText(TextFormat("\tAxis % = %", axis, GetGamepadAxisMovement(xx i, xx axis)), 10, y, 10, BLACK);
                         y += 11;
                     }
 
-                    for button: 0.. 31
-                    {
+                    for button: 0..31 {
                         DrawText(TextFormat("\tButton % = %", button, IsGamepadButtonDown(xx i, xx button)), 10, y, 10, BLACK);
                         y += 11;
                     }

@@ -32,14 +32,11 @@ main :: () {
 
     while !WindowShouldClose() {
 
-        if (IsFileDropped())
-        {
+        if (IsFileDropped()) {
             droppedFiles := LoadDroppedFiles();
 
-            for i: 0..droppedFiles.count - 1
-            {
-                if (filePathCounter < (MAX_FILEPATH_RECORDED - 1))
-                {
+            for i: 0..droppedFiles.count - 1 {
+                if (filePathCounter < (MAX_FILEPATH_RECORDED - 1)) {
                     TextCopy(*filePaths[filePathCounter][0], droppedFiles.paths[i]);
 
                     filePathCounter += 1;

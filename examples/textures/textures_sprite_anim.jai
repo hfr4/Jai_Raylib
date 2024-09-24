@@ -64,7 +64,7 @@ main :: () {
             DrawRectangleLines(15 + cast(s32) frameRec.x, 40 + cast(s32)frameRec.y, cast(s32)frameRec.width, cast(s32)frameRec.height, RED);
 
             DrawText("FRAME SPEED: ", 165, 210, 10, DARKGRAY);
-            DrawText(TextFormat("%02i FPS", framesSpeed), 575, 210, 10, DARKGRAY);
+            DrawText(TextFormat("% FPS", framesSpeed), 575, 210, 10, DARKGRAY);
             DrawText("PRESS RIGHT/LEFT KEYS to CHANGE SPEED!", 290, 240, 10, DARKGRAY);
 
             for i: 0..MAX_FRAME_SPEED - 1 {

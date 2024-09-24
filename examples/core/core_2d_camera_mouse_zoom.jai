@@ -26,12 +26,15 @@ main :: () {
     camera: Camera2D;
     camera.zoom = 1.0;
 
-    zoomMode := 0;   // 0-Mouse Wheel, 1-Mouse Move
+    zoomMode: enum {
+        MOUSE_WHEEL;
+        MOUSE_MOVE;
+    } = .MOUSE_WHEEL;
 
-        while !WindowShouldClose() {
+    while !WindowShouldClose() {
 
-        if      IsKeyPressed(xx KeyboardKey.ONE) zoomMode = 0;
-        else if IsKeyPressed(xx KeyboardKey.TWO) zoomMode = 1;
+        if      IsKeyPressed(xx KeyboardKey.ONE) zoomMode = .MOUSE_WHEEL;
+        else if IsKeyPressed(xx KeyboardKey.TWO) zoomMode = .MOUSE_MOVE;
 
         // Translate based on mouse right click
         if IsMouseButtonDown(xx MouseButton.RIGHT)
@@ -41,7 +44,7 @@ main :: () {
             camera.target = Vector2Add(camera.target, delta);
         }
 
-        if zoomMode == 0
+        if zoomMode == .MOUSE_WHEEL
         {
             // Zoom based on mouse wheel
             wheel := GetMouseWheelMove();
@@ -109,8 +112,8 @@ main :: () {
             EndMode2D();
 
             DrawText("[1][2] Select mouse zoom mode (Wheel or Move)", 20, 20, 20, DARKGRAY);
-            if zoomMode == 0 DrawText("Mouse right button drag to move, mouse wheel to zoom"         , 20, 50, 20, DARKGRAY);
-            else             DrawText("Mouse right button drag to move, mouse press and move to zoom", 20, 50, 20, DARKGRAY);
+            if zoomMode == .MOUSE_WHEEL DrawText("Mouse right button drag to move, mouse wheel to zoom"         , 20, 50, 20, DARKGRAY);
+            else                        DrawText("Mouse right button drag to move, mouse press and move to zoom", 20, 50, 20, DARKGRAY);
 
             EndDrawing();
         }

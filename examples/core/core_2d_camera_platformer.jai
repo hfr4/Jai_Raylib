@@ -1,6 +1,20 @@
+/* ******************************************************************************************
+*
+*   raylib [core] example - 2D Camera platformer
+*
+*   Example originally created with raylib 2.5, last time updated with raylib 3.0
+*
+*   Example contributed by arvyy (@arvyy) and reviewed by Ramon Santamaria (@raysan5)
+*
+*   Example licensed under an unmodified zlib/libpng license, which is an OSI-certified,
+*   BSD-like license that allows static linking with closed source software
+*
+*   Copyright (c) 2019-2023 arvyy (@arvyy)
+*
+********************************************************************************************/
+
 #import "Basic";
 #import "Raylib";
-
 
 G               :: 400;
 PLAYER_JUMP_SPD :: 350.0;

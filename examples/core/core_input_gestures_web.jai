@@ -38,6 +38,19 @@ gestureLog: [GESTURE_LOG_SIZE][12] u8; // The gesture log uses an array (as an i
 gestureLogIndex := GESTURE_LOG_SIZE;    // The index for the inverted circular queue (moving from last to first direction, then looping around)
 previousGesture := 0;
 
+main :: () {
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [core] example - input gestures web");
+
+    #if PLATFORM_WEB {
+        // emscripten_set_main_loop(Update, 0, 1);
+    } else {
+        SetTargetFPS(60);
+        while (!WindowShouldClose()) Update();
+    }
+
+    CloseWindow();
+}
+
 GetGestureName :: ( i: int) -> string
 {
    if i == {
@@ -283,20 +296,4 @@ Update :: ()
         }
 
     EndDrawing();
-}
-
-
-main :: () {
-
-    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [core] example - input gestures web");
-
-
-    #if PLATFORM_WEB {
-        // emscripten_set_main_loop(Update, 0, 1);
-    } else {
-        SetTargetFPS(60);
-        while (!WindowShouldClose()) Update();
-    }
-
-    CloseWindow();
 }

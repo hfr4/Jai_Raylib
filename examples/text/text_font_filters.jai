@@ -99,8 +99,8 @@ main :: () {
             //DrawRectangleLines(fontPosition.x, fontPosition.y, textSize.x, textSize.y, RED);
 
             DrawRectangle(0, SCREEN_HEIGHT - 80, SCREEN_WIDTH, 80, LIGHTGRAY);
-            DrawText(TextFormat("Font size: %02.02", fontSize), 20, SCREEN_HEIGHT - 50, 10, DARKGRAY);
-            DrawText(TextFormat("Text size: [%02.02, %02.02]", textSize.x, textSize.y), 20, SCREEN_HEIGHT - 30, 10, DARKGRAY);
+            DrawText(TextFormat("Font size: %", fontSize), 20, SCREEN_HEIGHT - 50, 10, DARKGRAY);
+            DrawText(TextFormat("Text size: [%, %]", textSize.x, textSize.y), 20, SCREEN_HEIGHT - 30, 10, DARKGRAY);
             DrawText("CURRENT TEXTURE FILTER:", 250, 400, 20, GRAY);
 
             if      (currentFontFilter == 0) DrawText("POINT"    , 570, 400, 20, BLACK);

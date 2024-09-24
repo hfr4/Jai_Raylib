@@ -112,7 +112,7 @@ main :: () {
 
     CloseWindow();
 }
-// Audio effect: lowpass filter
+
 low: [2] float;
 AudioProcessEffectLPF :: (buffer: *void, frames: u32) #c_call {
     CUTOFF :: 70.0 / 44100.0;                   // 70 Hz lowpass filter
@@ -131,7 +131,6 @@ AudioProcessEffectLPF :: (buffer: *void, frames: u32) #c_call {
     }
 }
 
-// Audio effect: delay
 AudioProcessEffectDelay :: (buffer: *void, frames: u32) #c_call {
     samples := cast(*float) buffer;   // Samples internally stored as <float>s
 

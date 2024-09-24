@@ -16,7 +16,30 @@
 #import "Basic";
 #import "Raylib";
 
-// Custom logging function
+main :: () {
+    SCREEN_WIDTH  :: 800;
+    SCREEN_HEIGHT :: 450;
+
+    // Set custom logger
+    SetTraceLogCallback(CustomLog);
+
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [core] example - custom logging");
+
+    SetTargetFPS(60);
+
+    while !WindowShouldClose() {
+        BeginDrawing();
+
+        ClearBackground(RAYWHITE);
+
+        DrawText("Check out the console output to see the custom logger in action!", 60, 200, 20, LIGHTGRAY);
+
+        EndDrawing();
+    }
+
+    CloseWindow();
+}
+
 CustomLog :: (msgType: s32, text: *u8,  args: *void) #c_call {
     // timeStr: [64] u8;
     // now := get_time_milliseconds();
@@ -34,31 +57,4 @@ CustomLog :: (msgType: s32, text: *u8,  args: *void) #c_call {
 
     // print(text, args);
     // printf("\n");
-}
-
-
-main :: () {
-    SCREEN_WIDTH  :: 800;
-    SCREEN_HEIGHT :: 450;
-
-    // Set custom logger
-    SetTraceLogCallback(CustomLog);
-
-    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [core] example - custom logging");
-
-    SetTargetFPS(60);
-
-    while !WindowShouldClose() {
-
-        // TODO: Update your variables here
-
-        BeginDrawing();
-
-        ClearBackground(RAYWHITE);
-
-        DrawText("Check out the console output to see the custom logger in action!", 60, 200, 20, LIGHTGRAY);
-
-        EndDrawing();
-    }
-    CloseWindow();
 }
