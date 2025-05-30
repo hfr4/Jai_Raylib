@@ -1,5 +1,3 @@
 # Raylib bindings for Jai
 
-Contains raylib v5.0 and raygui v4.0
-
-Only for windows
+raylib v5.5 + raygui v4.0

@@ -180,9 +180,9 @@ GenTextureCubemap :: (shader: Shader, panorama: Texture2D, size: s32, format: s3
     // STEP 1: Setup framebuffer
     //------------------------------------------------------------------------------------------
     rbo := rlLoadTextureDepth(size, size, true);
-    cubemap.id = rlLoadTextureCubemap(null, size, format);
+    cubemap.id = rlLoadTextureCubemap(null, size, format, 1);
 
-    fbo := rlLoadFramebuffer(size, size);
+    fbo := rlLoadFramebuffer();
     rlFramebufferAttach(fbo, rbo       , xx rlFramebufferAttachType.DEPTH         , xx rlFramebufferAttachTextureType.RENDERBUFFER      , 0);
     rlFramebufferAttach(fbo, cubemap.id, xx rlFramebufferAttachType.COLOR_CHANNEL0, xx rlFramebufferAttachTextureType.CUBEMAP_POSITIVE_X, 0);
 

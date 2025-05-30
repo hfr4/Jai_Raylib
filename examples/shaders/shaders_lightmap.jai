@@ -55,7 +55,7 @@ main :: () {
     rlEnableVertexArray(mesh.vaoId);
 
     // Index 5 is for texcoords2
-    rlSetVertexAttribute(5, 2, RL_FLOAT, false, 0, null);
+    rlSetVertexAttribute(5, 2, RL_FLOAT, false, 0, 0);
     rlEnableVertexAttribute(5);
     rlDisableVertexArray();
 

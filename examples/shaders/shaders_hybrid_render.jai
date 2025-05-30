@@ -136,7 +136,7 @@ LoadRenderTextureDepthTex :: (width: s32, height: s32) -> RenderTexture2D
 {
     target: RenderTexture2D;
 
-    target.id = rlLoadFramebuffer(width, height);   // Load an empty framebuffer
+    target.id = rlLoadFramebuffer();   // Load an empty framebuffer
 
     if (target.id > 0)
     {

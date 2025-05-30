@@ -70,7 +70,7 @@ main :: () {
 
     // Initialize the G-buffer
     gBuffer: GBuffer;
-    gBuffer.framebuffer = rlLoadFramebuffer(SCREEN_WIDTH, SCREEN_HEIGHT);
+    gBuffer.framebuffer = rlLoadFramebuffer();
 
     if (!gBuffer.framebuffer)
     {
