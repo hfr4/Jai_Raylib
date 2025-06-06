@@ -2603,10 +2603,10 @@ GuiIconName :: enum s32 {
 
 #import "Basic"; // For push_context
 
-user32  :: #system_library,link_always "user32";
-gdi32   :: #system_library,link_always "gdi32";
-shell32 :: #system_library,link_always "shell32";
-winmm   :: #system_library,link_always "winmm";
+user32  :: #library,system,link_always,no_dll "user32";
+gdi32   :: #library,system,link_always,no_dll "gdi32";
+shell32 :: #library,system,link_always,no_dll "shell32";
+winmm   :: #library,system,link_always,no_dll "winmm";
 
-raylib :: #library "lib/raylib";
-raygui :: #library "lib/raygui";
+raylib :: #library,no_dll "lib/raylib";
+raygui :: #library,no_dll "lib/raygui";
